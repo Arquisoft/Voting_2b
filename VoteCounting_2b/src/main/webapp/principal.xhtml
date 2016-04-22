@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='iso-8859-1' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Prueba</title>
+</h:head>
+<h:body>
+	<ui:include src="/snippets/navegacion.xhtml" />
+
+	<b:container layout="fluid">
+		<b:row>
+			<b:column >
+		<b:jumbotron>
+                    <h1>Bienvenido a VoteCounting_2b</h1>
+                    <p>Esto es un protipo de una aplicacion web. Entre sus funciones:</p>
+                    <ul>
+                    	<li> <p>Ver una lista de elecciones en curso o terminadas.</p></li>
+        				<li> <p>Consultar los resultados de una elección.</p>   </li>
+        				<li> <p>Iniciar el recuento de una eleccion por parte de la Junta Electoral.</p>   </li>
+                    </ul>  
+                    <p>
+                        <a class="btn btn-lg btn-primary" href="/listaElecciones.xhtml" role="button">
+                        <span>Consultar Lista de Elecciones </span>
+                        <span><i class="glyphicon glyphicon-chevron-right"></i>
+                        </span></a>
+                        
+                        <a id="Acceso Junta Electoral" class="btn btn-lg btn-info" href="/loginElectoral.xhtml" role="button">
+                        <span>Acceso Junta Electoral </span>
+                        <span><i class="glyphicon glyphicon-chevron-right"></i>
+                        </span></a>
+                    </p>
+        </b:jumbotron>
+		</b:column>
+		</b:row>
+	</b:container>
+</h:body>
+</html>

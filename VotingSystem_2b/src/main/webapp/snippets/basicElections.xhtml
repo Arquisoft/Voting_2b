@@ -1,0 +1,73 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:b="http://butterfaces.larmic.de/components">
+
+
+    <b:text label="Nombre elecciones" id="nombreElecciones"
+            value="#{beanConfigElection.electionName}" required="true"/>
+
+
+    <b:calendar id="calendarioInicio"
+                label="Fecha de inicio"
+                hideLabel="false"
+                pickDate="true"
+                pickTime="true"
+                sideBySide="false"
+                language="en"
+                glyphiconDate="fa fa-calendar"
+                glyphiconTime="fa fa-clock-o"
+                glyphiconUp="fa fa-chevron-up"
+                glyphiconDown="fa fa-chevron-down"
+                placeholder="Enter date or click icon..."
+                readonly="false"
+                required="true"
+                disabled="false"
+                autoFocus="false"
+                rendered="true"
+                value="#{beanConfigElection.initialDate}">
+
+    </b:calendar>
+
+
+    <b:calendar id="calendarioFinal"
+                label="Fecha de final"
+                hideLabel="false"
+                pickDate="true"
+                pickTime="true"
+                sideBySide="false"
+                language="en"
+                glyphiconDate="fa fa-calendar"
+                glyphiconTime="fa fa-clock-o"
+                glyphiconUp="fa fa-chevron-up"
+                glyphiconDown="fa fa-chevron-down"
+                placeholder="Enter date or click icon..."
+                readonly="false"
+                required="true"
+                disabled="false"
+                autoFocus="false"
+                rendered="true"
+                value="#{beanConfigElection.expireDate}">
+
+    </b:calendar>
+
+
+    <b:textArea id="instrucciones"
+                label="Instrucciones"
+                hideLabel="false"
+                tooltip="tooltip"
+                styleClass="null"
+                readonly="false"
+                required="true"
+                disabled="false"
+                placeholder="Enter text..."
+                autoFocus="false"
+                rendered="true"
+                value="#{beanConfigElection.instructions}">
+
+    </b:textArea>
+
+
+</ui:composition>

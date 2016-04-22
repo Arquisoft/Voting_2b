@@ -1,0 +1,20 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui" 
+	xmlns:p="http://primefaces.org/ui">
+	 
+	<b:navBar brand="VoteCounting" brandHref="principal.xhtml" inverse="true">
+		<b:navbarLinks>
+			<b:navLink value="Principal" href="principal.xhtml"></b:navLink>
+			<b:navLink value="Lista Elecciones" href="listaElecciones.xhtml"></b:navLink>
+			<b:dropMenu value="Tipos Elecciones">
+				<b:navLink value="Referendum" href="listaReferendum.xhtml"></b:navLink>
+				<b:navLink value="Listas Cerradas" href="listaCerradas.xhtml"></b:navLink>
+				<b:navLink value="Listas Abiertas" href="listasAbiertas.xhtml"></b:navLink>
+			</b:dropMenu>
+		</b:navbarLinks>
+	</b:navBar>
+	
+</ui:composition>

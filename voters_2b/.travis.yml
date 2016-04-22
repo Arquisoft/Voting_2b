@@ -1,0 +1,18 @@
+language: java
+sudo: false # faster builds
+before_install:
+  - pip install --user codecov
+
+after_success:
+  - codecov
+jdk:
+- oraclejdk8
+notifications:
+  email:
+    recipients:
+      - UO237104@uniovi.es
+      - uo240772@uniovi.es
+      - uo239995@uniovi.es
+    on_success: change
+    on_failure: always
+ 

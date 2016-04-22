@@ -1,0 +1,89 @@
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:b="http://butterfaces.larmic.de/components">
+
+    <h:head>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta charset="utf-8"/>
+        <script type="text/javascript"
+                src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+              rel="stylesheet" type="text/css"/>
+        <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet"
+              type="text/css"/>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+              rel="stylesheet"/>
+        <link rel="stylesheet"
+              href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css"/>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+    </h:head>
+
+
+    <h:body>
+
+
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="jumbotron">
+                            <b:messages showDetail="true" autoUpdate="true" globalOnly="true" closable="true"/>
+                            <h1>#{beanReferendum.referendum.name}</h1>
+                            <h2>#{beanReferendum.referendum.question}</h2>
+                            <blockquote><p>#{beanReferendum.referendum.instructions}</p>
+
+                            </blockquote>
+                            <p><br/></p>
+                            <h:form id="formId">
+
+
+                                <b:treeBox id="treebox"
+                                           label="Escoja una respuesta"
+                                           hideLabel="false"
+                                           value="#{beanReferendum.selectedValue}"
+                                           values="#{beanReferendum.values}"
+                                           placeholder="Enter text..."
+                                           styleClass="demo-big-label"
+                                           readonly="false"
+                                           disabled="false"
+                                           inputTextProperty="null"
+                                           required="true"
+                                           autoFocus="false"
+                                           rendered="true">
+                                    <b:tooltip>
+                                        Seleccione el tipo de elecciones
+                                    </b:tooltip>
+                                </b:treeBox>
+
+                                <b:commandLink id="Votar"
+                                               value="Votar"
+                                               glyphicon="glyphicon glyphicon-thumbs-up glyphicon-lg"
+                                               styleClass="btn btn-primary"
+                                               ajaxDisableLinkOnRequest="true"
+                                               ajaxShowWaitingDotsOnRequest="true"
+                                               ajaxHideGlyphiconOnRequest="false"
+                                               ajaxDisableRenderRegionsOnRequest="true"
+                                               ajaxProcessingGlyphicon="fa fa-refresh fa-spin"
+                                               action="#{beanReferendum.votar}"
+                                               rendered="#{beanReferendum.isVoted() eq false}"
+                                               update="votaciones"
+                                >
+
+
+                                </b:commandLink>
+
+
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </h:body>
+
+</f:view>

@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='iso-8859-1' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<style>
+			td { text-align: center; }
+		</style>
+		<title>Lista Elecciones</title>
+	</h:head>
+	<h:body>
+	
+		<ui:include src="/snippets/navegacion.xhtml" />
+	
+		<b:container layout="fluid">
+			<h1 style="text-align: center">Lista de Elecciones</h1>
+			
+			<h:outputText value="-----------------------" />
+			<br />
+			<h:outputText value="#{busqueda.eleccionesEncontradas.toArray()[0].name}" />
+			<h:outputText value="#{busqueda.nombreProceso}" />
+			<br />
+			<h:outputText value="-----------------------" />
+			
+			<b:dataTable value="#{busqueda.eleccionesEncontradas.toArray()}" var="eleccion"
+				id="bElection" styleClass="table table-striped table-bordered"
+				style="width:100%">
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre" />
+					</f:facet>
+					<h:outputText value="#{eleccion.name}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Fecha de Comienzo" />
+					</f:facet>
+					<h:outputText value="#{eleccion.startDate}">
+						<f:convertDateTime pattern="d-M-yyyy" />
+					</h:outputText>
+	
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Fecha de Fin" />
+					</f:facet>
+					<h:outputText value="#{eleccion.expiryDate}">
+						<f:convertDateTime pattern="d-M-yyyy" />
+					</h:outputText>
+				</h:column>
+			</b:dataTable>
+		</b:container>
+	</h:body>
+</html>

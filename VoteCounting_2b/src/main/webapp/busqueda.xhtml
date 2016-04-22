@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='iso-8859-1' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Busqueda</title>
+</h:head>
+<h:body>
+	<ui:include src="/snippets/navegacion.xhtml" />
+	
+	<b:container layout="fluid">
+		<h1 style="text-align: center">Busqueda Personalizada</h1>
+		<b:row>
+			<b:column>
+				<h:form id="formularioBusqueda">
+
+					<b:panel title="Criterios de búsqueda de un proceso electoral"
+						collapsible="false" look="primary">
+						<b:row>
+							<b:column>
+								<h:outputText value="Buscar por nombre:" />
+							</b:column>
+
+							<b:column>
+								<b:inputText id="nombreProceso" placeholder="Nombre del proceso"
+									value="#{busqueda.nombreProceso}" />
+							</b:column>
+						</b:row>
+						
+						
+						<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+						<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+						
+						
+						<b:row>
+							<b:column>
+								<h:outputText value="Buscar por fecha de inicio:" />
+							</b:column>
+
+							<b:column>
+								<b:datepicker id="fechaInicio" mode="toggle-icon"
+									placeholder="Fecha de inicio del proceso"
+									value="#{busqueda.fechaInicioProceso}" />
+							</b:column>
+						</b:row>
+						
+						
+						<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+						<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+						
+						
+						<b:row>
+							<b:column>
+								<h:outputText value="Buscar por fecha de fin:" />
+							</b:column>
+
+							<b:column>
+								<b:datepicker id="fechaFin" mode="toggle-icon"
+									placeholder="Fecha en la que termina el proceso"
+									value="#{busqueda.fechaFinProceso}" />
+							</b:column>
+						</b:row>
+
+
+						<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+						<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+						<b:row>
+							<b:column>
+								<b:commandButton id="botonBusqueda" value="buscar" action="#{busqueda.buscar}"
+												look="primary" style="width:100%"/>
+							</b:column>
+						</b:row>
+					</b:panel>
+				</h:form>
+			</b:column>
+		</b:row>
+
+		
+		<br />
+		
+
+		<b:row>
+			<h1 style="text-align: center">Lista de Elecciones</h1>
+			
+			<b:dataTable id="tablaResultados" value="#{busqueda.eleccionesEncontradas}" var="eleccion"
+				styleClass="table table-striped table-bordered" style="width:100%">
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre" />
+					</f:facet>
+					<h:outputText value="#{eleccion.name}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Fecha de Comienzo" />
+					</f:facet>
+					<h:outputText value="#{eleccion.startDate}">
+						<f:convertDateTime pattern="d-M-yyyy" />
+					</h:outputText>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Fecha de Fin" />
+					</f:facet>
+					<h:outputText value="#{eleccion.expiryDate}">
+						<f:convertDateTime pattern="d-M-yyyy" />
+					</h:outputText>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Numero Votos" />
+					</f:facet>
+					<h:outputText value="#{eleccion.countVotes()}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Consultar Resultados" />
+					</f:facet>
+					<h:form>
+						<b:commandButton ajax="true" value="Resultados" look="primary"
+							actionListener="#{BeanRecuento.recuentoVotos(eleccion)}"
+							action="#{BeanResultados.mostrarGraficos}"
+							rendered="#{eleccion.readyToRecount()}" />
+						
+						<b:commandButton ajax="true"
+							value="No se ha realizado el recuento" look="danger"
+							rendered="#{eleccion.readyToRecount()==false}" />
+					</h:form>
+				</h:column>
+			</b:dataTable>
+		</b:row>
+	</b:container>
+</h:body>
+</html>

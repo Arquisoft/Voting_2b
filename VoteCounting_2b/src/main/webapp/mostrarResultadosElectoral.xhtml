@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='iso-8859-1' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Resultados</title>
+</h:head>
+<h:body>
+	
+	<b:navBar brand="VoteCounting" inverse="true">
+		<b:navbarLinks>
+			<b:navLink value="Lista Elecciones Sin Recuento" href="listaEleccionesSinRecuento.xhtml"></b:navLink>
+		</b:navbarLinks>
+		<b:navbarLinks pull="right">
+			<h:form class="navbar-form navbar-left hidden-md hidden-sm hidden-xs">
+				<b:commandButton type="submit" class="btn btn-default"
+					action="#{BeanValidator.cerrarSesion}">Cerrar Sesion</b:commandButton>
+			</h:form>
+		</b:navbarLinks>
+	</b:navBar>
+	
+	<h1 style="text-align: center">
+		<h:outputText value="#{BeanRecuento.nombreEleccion}" />
+	</h1>
+	<br></br>
+	<b:container layout="fluid">
+		<b:row>
+			<b:column span="6">
+				<p:chart type="pie" model="#{BeanResultados.pieModel1}"
+					style="width:400px;height:300px" />
+			</b:column>
+			<b:column span="6">
+				<b:dataTable value="#{BeanRecuento.actual.entrySet().toArray()}" var="entry" id="bcarPool"
+					styleClass="table table-striped table-bordered" style="width:100%">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Opciones" />
+						</f:facet>
+						<h:outputText value="#{entry.key}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Num Votos" />
+						</f:facet>
+						<h:outputText value="#{entry.value}" />
+					</h:column>
+
+				</b:dataTable>
+			</b:column>
+		</b:row>
+		<b:row>
+			<b:column span="8">
+				<p:chart type="bar" model="#{BeanResultados.barModel}"
+					style="width:400px;height:300px" />
+			</b:column>
+		</b:row>
+	</b:container>
+
+</h:body>
+</html>

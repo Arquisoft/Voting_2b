@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+              version="2.2">
+
+    <application>
+        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+    </application>
+
+    <navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-action>#{defaultBean.action}</from-action>
+			<from-outcome>exito</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+    </navigation-rule>
+
+
+	<navigation-rule>
+		<from-view-id>login.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{beanLogIn.login}</from-action>
+			<from-outcome>exito</from-outcome>
+			<to-view-id>/administrationPortal.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+
+
+    <navigation-rule>
+        <from-view-id>login.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{beanLogIn.login}</from-action>
+            <from-outcome>referendum</from-outcome>
+            <to-view-id>/paginaVotacionReferendum.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+
+		<navigation-case>
+			<from-action>#{beanLogIn.login}</from-action>
+			<from-outcome>abiertas</from-outcome>
+			<to-view-id>/paginaVotacionAbierta.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
+		<navigation-case>
+            <from-action>#{beanLogIn.login}</from-action>
+            <from-outcome>cerradas</from-outcome>
+            <to-view-id>/paginaVotacionCerrada.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+
+    </navigation-rule>
+
+
+	<navigation-rule>
+		<from-view-id>configuratePollingPlaces.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{beanPolling.configurePollingPlaces()}</from-action>
+			<from-outcome>exito</from-outcome>
+			<to-view-id>/administrationPortal.xhtml</to-view-id>
+		</navigation-case>
+
+		<navigation-case>
+			<from-action>#{beanPolling.configurePollingPlaces()}</from-action>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/configuratePollingPlaces.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+    <navigation-rule>
+		<from-view-id>/selectElection.xhtml</from-view-id>
+
+        <navigation-case>
+            <from-action>#{beanConfigElection.creaAbiertas}</from-action>
+            <from-outcome>exito</from-outcome>
+            <to-view-id>/administrationPortal.xhtml</to-view-id>
+
+        </navigation-case>
+
+
+        <navigation-case>
+            <from-action>#{beanConfigElection.creaCerradas}</from-action>
+            <from-outcome>exito</from-outcome>
+            <to-view-id>/administrationPortal.xhtml</to-view-id>
+
+        </navigation-case>
+
+		<navigation-case>
+			<from-action>#{beanConfigElection.creaReferendum}</from-action>
+			<from-outcome>exito</from-outcome>
+			<to-view-id>/administrationPortal.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{beanConfigElection.creaReferendum}</from-action>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/selectElection.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+
+</faces-config>

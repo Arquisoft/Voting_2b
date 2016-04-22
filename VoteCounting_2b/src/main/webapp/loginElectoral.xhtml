@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Login</title>
+</h:head>
+<h:body>
+
+	<b:navBar brand="VoteCounting" brandHref="/principal.xhtml"
+		inverse="true">
+	</b:navBar>
+
+	<h:form id="loginForm">
+		<b:container layout="fluid">
+		<h1>Administracion Junta Electoral</h1>
+			<b:row>
+				<b:column span="6">
+					<b:panel title="Login Junta Electoral" look="primary">
+						<b:row>
+							<b:column medium-screen="2">
+								<h:outputText value="Email" for="email" />
+							</b:column>
+							<b:column medium-screen="6">
+								<b:inputText placeholder="Email" required="true"
+									id="email" value="#{BeanValidator.email}">
+									<f:facet name="prepend">
+										<b:icon name="user" />
+									</f:facet>
+								</b:inputText>
+							</b:column>
+
+						</b:row>
+						<b:row>
+							<b:column medium-screen="2">
+								<h:outputText value="Password:" />
+							</b:column>
+							<b:column medium-screen="6">
+								<b:inputSecret placeholder="Password" id="password"
+									value="#{BeanValidator.password}">
+									<f:facet name="prepend">
+										<b:iconAwesome name="key" />
+									</f:facet>
+								</b:inputSecret>
+							</b:column>
+						</b:row>
+						<b:row>
+							<b:column span="4" offset="2">
+								<b:commandButton ajax="true" value="login" update="@form"
+									look="primary" style="width:100%"
+									action="#{BeanValidator.validar}" id="login" />
+							</b:column>
+						</b:row>
+					</b:panel>
+				</b:column>
+			</b:row>
+		</b:container>
+	</h:form>
+</h:body>
+</html>

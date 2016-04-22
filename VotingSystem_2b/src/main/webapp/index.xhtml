@@ -1,0 +1,72 @@
+<f:view
+        xmlns:b="http://bootsfaces.net/ui"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:prime="http://primefaces.org/ui"
+        xmlns:s="http://springframework.org/tags/springfaces">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript"
+                src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
+              type="text/css"/>
+        <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet"
+              type="text/css"/>
+        <style>
+
+            .video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            -ms-transform: translateX(-50%) translateY(-50%);
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            background-size: cover;
+            }
+
+
+
+        </style>
+    </h:head>
+
+    <h:body>
+
+        <video class="video" autoplay="true" loop="true" muted="true">
+            <source src="video/obama.mp4" type="video/mp4"/>
+        </video>
+
+        <h:form id="form">
+
+
+            <div class="cover">
+                <div class="cover-image" style="background-image:url(#{resource['img/urna.jpg']});"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h1
+
+                                    class="text-inverse">¡Bienvenido! Ayuda a tu pais con un voto</h1>
+                            <br/>
+                            <br/>
+                            <b:commandButton class="btn btn-lg btn-primary" id="botonPrimario" value="Iniciar sesión"
+                                             action="#{defaultBean.action}"></b:commandButton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </h:form>
+    </h:body>
+</f:view>

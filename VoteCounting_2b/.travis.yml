@@ -1,0 +1,27 @@
+language: java
+jdk:
+- oraclejdk8
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+notifications:
+  email:
+    recipients:
+      - UO237104@uniovi.es
+      - uo240772@uniovi.es
+      - uo239995@uniovi.es
+    on_success: change
+    on_failure: always
+
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/b639b5dee62f99a89ff6
+    on_success: change
+    on_failure: always
+    on_start: never
+
+
+
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start

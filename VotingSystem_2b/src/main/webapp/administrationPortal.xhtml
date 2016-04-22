@@ -1,0 +1,272 @@
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:b="http://bootsfaces.net/ui"
+>
+
+    <h:head>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta charset="utf-8"/>
+        <script type="text/javascript"></script>
+        <style>
+            .timeline {
+                list-style: none;
+                padding: 20px 0 20px;
+                position: relative;
+            }
+
+            .timeline:before {
+                top: 0;
+                bottom: 0;
+                position: absolute;
+                content: " ";
+                width: 3px;
+                background-color: #eeeeee;
+                left: 50%;
+                margin-left: -1.5px;
+            }
+
+            .timeline > li {
+                margin-bottom: 20px;
+                position: relative;
+            }
+
+            .timeline > li:before,
+            .timeline > li:after {
+                content: " ";
+                display: table;
+            }
+
+            .timeline > li:after {
+                clear: both;
+            }
+
+            .timeline > li:before,
+            .timeline > li:after {
+                content: " ";
+                display: table;
+            }
+
+            .timeline > li:after {
+                clear: both;
+            }
+
+            .timeline > li > .timeline-panel {
+                width: 46%;
+                float: left;
+                border: 1px solid #d4d4d4;
+                border-radius: 2px;
+                padding: 20px;
+                position: relative;
+                -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+                box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+            }
+
+            .timeline > li > .timeline-panel:before {
+                position: absolute;
+                top: 26px;
+                right: -15px;
+                display: inline-block;
+                border-top: 15px solid transparent;
+                border-left: 15px solid #ccc;
+                border-right: 0 solid #ccc;
+                border-bottom: 15px solid transparent;
+                content: " ";
+            }
+
+            .timeline > li > .timeline-panel:after {
+                position: absolute;
+                top: 27px;
+                right: -14px;
+                display: inline-block;
+                border-top: 14px solid transparent;
+                border-left: 14px solid #fff;
+                border-right: 0 solid #fff;
+                border-bottom: 14px solid transparent;
+                content: " ";
+            }
+
+            .timeline > li > .timeline-badge {
+                color: #fff;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                font-size: 1.4em;
+                text-align: center;
+                position: absolute;
+                top: 16px;
+                left: 50%;
+                margin-left: -25px;
+                background-color: #999999;
+                z-index: 100;
+                border-top-right-radius: 50%;
+                border-top-left-radius: 50%;
+                border-bottom-right-radius: 50%;
+                border-bottom-left-radius: 50%;
+            }
+
+            .timeline > li.timeline-inverted > .timeline-panel {
+                float: right;
+            }
+
+            .timeline > li.timeline-inverted > .timeline-panel:before {
+                border-left-width: 0;
+                border-right-width: 15px;
+                left: -15px;
+                right: auto;
+            }
+
+            .timeline > li.timeline-inverted > .timeline-panel:after {
+                border-left-width: 0;
+                border-right-width: 14px;
+                left: -14px;
+                right: auto;
+            }
+
+            .timeline-badge.primary {
+                background-color: #2e6da4 !important;
+            }
+
+            .timeline-badge.success {
+                background-color: #3f903f !important;
+            }
+
+            .timeline-badge.warning {
+                background-color: #f0ad4e !important;
+            }
+
+            .timeline-badge.danger {
+                background-color: #d9534f !important;
+            }
+
+            .timeline-badge.info {
+                background-color: #5bc0de !important;
+            }
+
+            .timeline-title {
+                margin-top: 0;
+                color: inherit;
+            }
+
+            .timeline-body > p,
+            .timeline-body > ul {
+                margin-bottom: 0;
+            }
+
+            .timeline-body > p + p {
+                margin-top: 5px;
+            }
+
+            @media (max-width: 767px) {
+                ul.timeline:before {
+                    left: 40px;
+                }
+
+                ul.timeline > li > .timeline-panel {
+                    width: calc(100% - 90px);
+                    width: -moz-calc(100% - 90px);
+                    width: -webkit-calc(100% - 90px);
+                }
+
+                ul.timeline > li > .timeline-badge {
+                    left: 15px;
+                    margin-left: 0;
+                    top: 16px;
+                }
+
+                ul.timeline > li > .timeline-panel {
+                    float: right;
+                }
+
+                ul.timeline > li > .timeline-panel:before {
+                    border-left-width: 0;
+                    border-right-width: 15px;
+                    left: -15px;
+                    right: auto;
+                }
+
+                ul.timeline > li > .timeline-panel:after {
+                    border-left-width: 0;
+                    border-right-width: 14px;
+                    left: -14px;
+                    right: auto;
+                }
+            }
+        </style>
+
+    </h:head>
+
+
+    <h:body>
+
+
+        <div class="container">
+
+            <div class="page-header">
+                <h1 id="timeline">Portal de administración</h1>
+                <blockquote> <a id="linkInicio" href="index.xhtml">Ir a inicio</a> </blockquote>
+
+        </div>
+            <b:messages showDetail="true" autoUpdate="true" globalOnly="true" closable="true"/>
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <a href="selectElection.xhtml"><h4 class="timeline-title">Configurar elecciones</h4></a>
+
+                        </div>
+                        <div class="timeline-body">
+                            <p>Configure en un sencillo formulario las próximas elecciones, estas podrán ser de diferentes tipos, acutalmente el
+                                sistema soporta elecciones de listas abiertas,cerradas y referendums.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <a href="loadPhysicalVotes.xhtml"><h4 class="timeline-title">Carga de votos físicos</h4></a>
+
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                Desde este módulo podrá cargar los votos que se han realizado de manera presencial
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-badge info"><i class="glyphicon glyphicon-check"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <a href="configuratePollingPlaces.xhtml"><h4
+                                    class="timeline-title">Configuración de colegios electorales</h4></a>
+
+                        </div>
+                        <div class="timeline-body">
+                            <p>Configure los colegios electorales que participarán en las próximas elecciones mediante un
+                                archivo excel</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <a href="physicalVoting.xhtml"><h4 class="timeline-title">Control de voto</h4></a>
+
+                        </div>
+                        <div class="timeline-body">
+                            <p>Controle el voto presencial de los votantes para evitar que vuelvan a hacelo de manera online</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+    </h:body>
+
+</f:view>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns:b="http://bootsfaces.net/ui"
+	xmlns:bt="http://butterfaces.larmic.de/components"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:prime="http://primefaces.org/ui"
+	xmlns:s="http://springframework.org/tags/springfaces">
+<f:view>
+
+	<h:head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script type="text/javascript"
+			src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script type="text/javascript"
+			src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<link
+			href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+			rel="stylesheet" type="text/css" />
+		<link
+			href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
+			rel="stylesheet" type="text/css" />
+	</h:head>
+
+	<h:body>
+
+		<div class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+
+						<div class="page-header">
+							<h1>Votos físicos</h1>
+						</div>
+
+						<h:form id="formId">
+
+							<b:messages showDetail="true" autoUpdate="true" globalOnly="true"
+								closable="true" />
+
+							<h:panelGrid columns="2">
+								<h2>#{physicalVotes.totalTurnoutPP -
+									physicalVotes.totalVotesPP - physicalVotes.totalVotes} votos
+									han de ser cargados &#160;&#160;&#160;</h2>
+								<h2>
+									<b:commandButton value="Confirmar y enviar"
+										disabled="#{physicalVotes.totalTurnoutPP - physicalVotes.totalVotesPP - physicalVotes.totalVotes gt 0}"
+										rendered="#{not physicalVotes.votes.isEmpty()}" ajax="true"
+										action="#{physicalVotes.load()}" update="@form" look="primary" />
+								</h2>
+							</h:panelGrid>
+							<h:panelGrid columns="2">
+								<h:outputLabel value="Colegio Electoral"
+									style="margin-right: 15px" />
+								<b:selectOneMenu ajax="true"
+									value="physicalVotes.selectedPollingPlace" update="@form">
+									<f:selectItems value="#{physicalVotes.pollingPlaces}" var="p"
+										itemValue="#{p}" itemLabel="#{p.id}">
+									</f:selectItems>
+								</b:selectOneMenu>
+							</h:panelGrid>
+
+							<b:dataTable rendered="#{physicalVotes.election.isOpenList()}"
+								value="#{physicalVotes.votes}" var="v"
+								styleClass="table table-striped table-bordered"
+								style="width:100%">
+
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Nombre" />
+									</f:facet>
+									<h:outputText value="#{v.candidate.name}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Apellidos" />
+									</f:facet>
+									<h:outputText value="#{v.candidate.surname}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Candidatura" />
+									</f:facet>
+									<h:outputText value="#{v.candidate.candidature.name}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Número de votos" />
+									</f:facet>
+									<prime:spinner id="minMax" value="#{v.numVotes}" min="0"
+										max="#{physicalVotes.totalTurnoutPP - physicalVotes.totalVotesPP - physicalVotes.totalVotes + v.numVotes}">
+										<prime:ajax listener="#{physicalVotes.addVote()}"
+											update="@form" />
+									</prime:spinner>
+								</h:column>
+							</b:dataTable>
+
+							<b:dataTable rendered="#{physicalVotes.election.isClosedList()}"
+								value="#{physicalVotes.votes}" var="v"
+								styleClass="table table-striped table-bordered"
+								style="width:100%">
+
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Nombre" />
+									</f:facet>
+									<h:outputText value="#{v.candidature.name}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Siglas" />
+									</f:facet>
+									<h:outputText value="#{v.candidature.initial}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">
+										<h:outputText value="Número de votos" />
+									</f:facet>
+									<prime:spinner id="minMax" value="#{v.numVotes}" min="0"
+										max="#{physicalVotes.totalTurnoutPP - physicalVotes.totalVotesPP - physicalVotes.totalVotes + v.numVotes}">
+										<prime:ajax listener="#{physicalVotes.addVote()}"
+											update="@form" />
+									</prime:spinner>
+								</h:column>
+							</b:dataTable>
+
+							<h:panelGrid columns="2">
+								<h:outputLabel
+									rendered="#{physicalVotes.election.isReferendum() and not physicalVotes.votes.isEmpty()}"
+									for="spnYeses" value="Sí"
+									style="margin-top: 10px; margin-right: 20px" />
+								<prime:spinner
+									rendered="#{physicalVotes.election.isReferendum() and not physicalVotes.votes.isEmpty()}"
+									id="spnYeses" value="#{physicalVotes.votes.get(0).yeses}"
+									min="0"
+									max="#{physicalVotes.totalTurnoutPP - physicalVotes.totalVotesPP - physicalVotes.totalVotes + physicalVotes.votes.get(0).yeses}"
+									style="margin-top: 10px">
+									<prime:ajax listener="#{physicalVotes.addVote()}"
+										update="@form" />
+								</prime:spinner>
+
+								<h:outputLabel
+									rendered="#{physicalVotes.election.isReferendum() and not physicalVotes.votes.isEmpty()}"
+									for="spnNoes" value="No" style="margin-top: 10px" />
+								<prime:spinner
+									rendered="#{physicalVotes.election.isReferendum() and not physicalVotes.votes.isEmpty()}"
+									id="spNoes" value="#{physicalVotes.votes.get(0).noes}" min="0"
+									max="#{physicalVotes.totalTurnoutPP - physicalVotes.totalVotesPP - physicalVotes.totalVotes + physicalVotes.votes.get(0).noes}"
+									style="margin-top: 10px">
+									<prime:ajax listener="#{physicalVotes.addVote()}"
+										update="@form" />
+								</prime:spinner>
+							</h:panelGrid>
+
+						</h:form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</h:body>
+</f:view>
+</html>

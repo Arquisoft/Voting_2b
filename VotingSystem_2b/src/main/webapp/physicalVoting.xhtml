@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:b="http://bootsfaces.net/ui"
+	xmlns:bt="http://butterfaces.larmic.de/components"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:prime="http://primefaces.org/ui"
+	xmlns:s="http://springframework.org/tags/springfaces">
+<f:view>
+
+	<h:head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script type="text/javascript"
+			src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script type="text/javascript"
+			src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<link
+			href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+			rel="stylesheet" type="text/css" />
+		<link
+			href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
+			rel="stylesheet" type="text/css" />
+	</h:head>
+
+	<h:body>
+
+		<div class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+
+						<div class="page-header">
+							<h1>Participación y voto</h1>
+							<blockquote> <a id="linkPortal" href="administrationPortal.xhtml">Ir a inicio</a> </blockquote>
+
+						</div>
+
+						<b:messages showDetail="true" autoUpdate="true" globalOnly="true"
+							closable="true" />
+
+						<h:form id="formId">
+
+							<b:messages showDetail="true" autoUpdate="true" globalOnly="true"
+								closable="true" />
+				
+				NIF
+				<b:inputText value="#{physicalVoting.dni}" placeholder="NIF..."
+								style="margin-top: 5px" />
+							<b:commandButton value="Buscar" ajax="true"
+								action="#{physicalVoting.search()}" update="@form"
+								look="primary" />
+
+
+							<b:panel rendered="#{not empty physicalVoting.voter}"
+								style="margin-top:20px">
+								<h3>#{physicalVoting.voter.name} &#160;&#160;&#160;
+									#{physicalVoting.voter.nif}</h3>
+								<br />
+								<h4>Colegio electoral
+									#{physicalVoting.voter.pollingPlace.id} &#160;&#160;&#160;
+									#{physicalVoting.voter.pollingPlace.constituency.region.name} -
+									#{physicalVoting.voter.pollingPlace.constituency.name}</h4>
+								<br />
+
+								<h3>
+									<b:label text="Ya ha emitido su voto"
+										rendered="#{not empty physicalVoting.turnout}"
+										severity="success" />
+								</h3>
+								<b:commandButton rendered="#{empty physicalVoting.turnout}"
+									value="Confirmar participación" ajax="true"
+									action="#{physicalVoting.confirm()}" update="@form"
+									look="primary" />
+							</b:panel>
+
+						</h:form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</h:body>
+</f:view>
+</html>

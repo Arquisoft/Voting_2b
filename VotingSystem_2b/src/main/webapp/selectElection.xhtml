@@ -1,0 +1,324 @@
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:b="http://butterfaces.larmic.de/components"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+
+
+    <h:head>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta charset="utf-8"/>
+        <script type="text/javascript"
+                src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+              rel="stylesheet" type="text/css"/>
+        <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet"
+              type="text/css"/>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+              rel="stylesheet"/>
+        <link rel="stylesheet"
+              href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css"/>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+
+
+        <style>
+            .demo-big-label .butter-component-label {
+                width: 250px;;
+            }
+
+            .demo-big-label .butter-component-value {
+                width: calc(100% - 250px);;
+            }
+        </style>
+
+    </h:head>
+    <h:body>
+
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="jumbotron" id="Posibles"><h1>Configure el sistema electoral</h1>
+                            <b:messages showDetail="true" autoUpdate="true" globalOnly="true" closable="true"/>
+
+                            <p>Seleccione el tipo de elecciones que desea.</p>
+                            <h:form class="form">
+
+
+                                <b:treeBox id="treebox"
+                                           label="Escoja el tipo de elecciones que desea"
+                                           hideLabel="false"
+                                           value="#{beanConfigElection.selectedValue}"
+                                           values="#{beanConfigElection.values}"
+                                           placeholder="Enter text..."
+                                           styleClass="demo-big-label"
+                                           readonly="false"
+                                           disabled="false"
+                                           inputTextProperty="null"
+                                           required="false"
+                                           autoFocus="false"
+                                           rendered="true">
+                                    <b:tooltip>
+                                        Seleccione el tipo de elecciones
+                                    </b:tooltip>
+                                </b:treeBox>
+
+
+                                <b:commandLink id="Configurar"
+                                               value="Seleccione el tipo"
+                                               glyphicon="glyphicon glyphicon-thumbs-up glyphicon-lg"
+                                               styleClass="btn btn-primary"
+                                               ajaxDisableLinkOnRequest="true"
+                                               ajaxShowWaitingDotsOnRequest="true"
+                                               ajaxHideGlyphiconOnRequest="false"
+                                               ajaxDisableRenderRegionsOnRequest="true"
+                                               ajaxProcessingGlyphicon="fa fa-refresh fa-spin"
+                                               action="#{beanConfigElection.println}"
+                                               rendered="true"
+                                               update="votaciones"
+                                >
+
+
+                                </b:commandLink>
+
+
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <b:section id="votaciones">
+            <b:section class="section" rendered="#{beanConfigElection.listasAbiertas()}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading"><h3 class="panel-title">Listas Abiertas</h3></div>
+                                <div class="panel-body">
+
+
+
+                                    <b:section rendered="#{beanConfigElection.isExcelUploaded() eq false}">
+                                        <h4>En primer lugar suba el archivo excel con las candidaturas</h4>
+                                        <form method="POST" enctype="multipart/form-data" action="/upload">
+
+
+                                            <h6>Sube el archivo</h6>
+
+
+                                            <div class="fileinput fileinput-new input-group"
+                                                 data-provides="fileinput">
+                                                <div class="form-control" data-trigger="fileinput"><i
+                                                        class="glyphicon glyphicon-file fileinput-exists"></i> <span
+                                                        class="fileinput-filename"></span></div>
+                                            <span class="input-group-addon btn btn-default btn-file"><span
+                                                    class="fileinput-new">Select file</span><span
+                                                    class="fileinput-exists">Change</span>    <input name="file"
+                                                                                                     type="file"/></span>
+                                                <a href="#"
+                                                   class="input-group-addon btn btn-default fileinput-exists"
+                                                   data-dismiss="fileinput">Remove</a>
+                                            </div>
+
+
+                                            <input class="btn btn-primary" type="submit" value="Sube el excel"/>
+
+
+                                        </form>
+                                    </b:section>
+
+
+                                    <h:form id="formAbiertas"  rendered="#{beanConfigElection.isExcelUploaded() eq true}">
+
+                                        <h4>Configure ahora  las elecciones</h4>
+                                        <ui:include src="/snippets/basicElections.xhtml"/>
+                                        <b:number id="input"
+                                                  label="Numero de elecciones disponibles"
+                                                  hideLabel="false"
+                                                  value="#{beanConfigElection.numChoices}"
+                                                  placeholder="Numero de posibilidades"
+                                                  min="0"
+                                                  step="1"
+                                                  styleClass="demo-big-label"
+                                                  readonly="false"
+                                                  required="false"
+                                                  disabled="false"
+                                                  autoFocus="false"
+                                                  rendered="true"/>
+                                        <b:tooltip>
+                                            Escoja el numero de opciones disponibles
+                                        </b:tooltip>
+
+                                        <b:commandLink id="crearAbiertas"
+                                                       value="Crea Elecciones de lista Abierta"
+                                                       glyphicon="glyphicon glyphicon-thumbs-up glyphicon-lg"
+                                                       styleClass="btn btn-primary"
+                                                       ajaxDisableLinkOnRequest="true"
+                                                       ajaxShowWaitingDotsOnRequest="true"
+                                                       ajaxHideGlyphiconOnRequest="false"
+                                                       ajaxDisableRenderRegionsOnRequest="true"
+                                                       ajaxProcessingGlyphicon="fa fa-refresh fa-spin"
+                                                       action="#{beanConfigElection.creaAbiertas}"
+                                                       rendered="true"
+                                                       update="@form"
+                                        >
+
+
+                                        </b:commandLink>
+
+
+                                    </h:form>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </b:section>
+
+            <div>
+
+            </div>
+
+
+            <b:section class="section" rendered="#{beanConfigElection.listasCerradas()}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading"><h3 class="panel-title">Listas Cerradas</h3></div>
+                                <div class="panel-body">
+
+                                    <b:section rendered="#{beanConfigElection.isExcelUploaded() eq false}">
+                                        <h4>En primer lugar suba el archivo excel con las candidaturas</h4>
+                                        <form method="POST" enctype="multipart/form-data" action="/upload">
+
+
+                                            <h6>Sube el archivo</h6>
+
+
+                                            <div class="fileinput fileinput-new input-group"
+                                                 data-provides="fileinput">
+                                                <div class="form-control" data-trigger="fileinput"><i
+                                                        class="glyphicon glyphicon-file fileinput-exists"></i> <span
+                                                        class="fileinput-filename"></span></div>
+                                            <span class="input-group-addon btn btn-default btn-file"><span
+                                                    class="fileinput-new">Select file</span><span
+                                                    class="fileinput-exists">Change</span>    <input name="file"
+                                                                                                     type="file"/></span>
+                                                <a href="#"
+                                                   class="input-group-addon btn btn-default fileinput-exists"
+                                                   data-dismiss="fileinput">Remove</a>
+                                            </div>
+
+
+                                            <input class="btn btn-primary" type="submit" value="Sube el excel"/>
+
+
+                                        </form>
+                                    </b:section>
+
+
+                                    <h:form id="formCerradas"  rendered="#{beanConfigElection.isExcelUploaded() eq true}">
+
+                                        <h4>Configure ahora  las elecciones</h4>
+                                        <ui:include src="/snippets/basicElections.xhtml"/>
+
+                                        <b:number id="input"
+                                                  label="Numero de elecciones disponibles"
+                                                  hideLabel="false"
+                                                  value="#{beanConfigElection.numChoices}"
+                                                  placeholder="Numero de posibilidades"
+                                                  min="0"
+                                                  step="1"
+                                                  styleClass="demo-big-label"
+                                                  readonly="false"
+                                                  required="false"
+                                                  disabled="false"
+                                                  autoFocus="false"
+                                                  rendered="true"/>
+                                        <b:tooltip>
+                                            Escoja el numero de opciones disponibles
+                                        </b:tooltip>
+                                        <b:commandLink id="creaCerradas"
+                                                       value="Crea Elecciones de lista Abierta"
+                                                       glyphicon="glyphicon glyphicon-thumbs-up glyphicon-lg"
+                                                       styleClass="btn btn-primary"
+                                                       ajaxDisableLinkOnRequest="true"
+                                                       ajaxShowWaitingDotsOnRequest="true"
+                                                       ajaxHideGlyphiconOnRequest="false"
+                                                       ajaxDisableRenderRegionsOnRequest="true"
+                                                       ajaxProcessingGlyphicon="fa fa-refresh fa-spin"
+                                                       action="#{beanConfigElection.creaCerradas}"
+                                                       rendered="true"
+                                                       update="@form"
+                                        >
+
+
+                                        </b:commandLink>
+
+
+                                    </h:form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </b:section>
+
+
+            <b:section class="section" rendered="#{beanConfigElection.referendum()}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading"><h3 class="panel-title">Referendum</h3></div>
+                                <div class="panel-body">
+
+                                    <h:form id="formReferendum">
+
+                                        <ui:include src="/snippets/basicElections.xhtml"/>
+                                        <b:text label="Pregunta del Referendum" id="referendumInput"
+                                                value="#{beanConfigElection.question}" required="true"/>
+                                        <b:commandLink id="crearReferendum"
+                                                       value="Crea Referendum"
+                                                       glyphicon="glyphicon glyphicon-thumbs-up glyphicon-lg"
+                                                       styleClass="btn btn-primary"
+                                                       ajaxDisableLinkOnRequest="true"
+                                                       ajaxShowWaitingDotsOnRequest="true"
+                                                       ajaxHideGlyphiconOnRequest="false"
+                                                       ajaxDisableRenderRegionsOnRequest="true"
+                                                       ajaxProcessingGlyphicon="fa fa-refresh fa-spin"
+                                                       action="#{beanConfigElection.creaReferendum}"
+                                                       rendered="true"
+                                                       update="formReferendum"
+                                        >
+
+                                        </b:commandLink>
+
+
+                                    </h:form>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </b:section>
+        </b:section>
+
+
+    </h:body>
+
+
+</f:view>

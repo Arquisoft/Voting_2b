@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+        id="YourProjectName" version="3.0">
+
+    <display-name>Your Project Name</display-name>
+
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+    <context-param>
+        <param-name>org.butterfaces.glyhicon.refresh</param-name>
+        <param-value>fa fa-refresh</param-value>
+    </context-param>
+    <context-param>
+        <param-name>org.butterfaces.glyhicon.options</param-name>
+        <param-value>fa fa-th</param-value>
+    </context-param>
+    <context-param>
+        <param-name>org.butterfaces.glyhicon.sort.none</param-name>
+        <param-value>fa fa-sort</param-value>
+    </context-param>
+    <context-param>
+        <param-name>org.butterfaces.glyhicon.sort.ascending</param-name>
+        <param-value>fa fa-sort-down</param-value>
+    </context-param>
+    <context-param>
+        <param-name>org.butterfaces.glyhicon.sort.descending</param-name>
+        <param-value>fa fa-sort-up</param-value>
+    </context-param>
+
+    <!-- Shows waiting panel over regions that will be renderer by ajax request -->
+    <!-- Could be overridden by ajaxDisableRenderRegionsOnRequest component attribute -->
+    <!-- default is true -->
+    <context-param>
+        <param-name>org.butterfaces.ajaxDisableRenderRegionsOnRequest</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+</web-app>
