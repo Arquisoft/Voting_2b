@@ -8,5 +8,10 @@ Voting System
 
 
 # Authors
-
+* Ignacio Fernández Álvarez
+* Naucé López González
+* Jorge Riopedre Vega
+* Francisco De Borja Fernández González
+* Sergio Moradas Quintana 
+* Marcelo Torrejón Manso
 * Jose Labra
