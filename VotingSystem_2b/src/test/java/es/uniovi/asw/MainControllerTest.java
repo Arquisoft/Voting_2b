@@ -177,7 +177,7 @@ public class MainControllerTest {
         iterator = driver.findElement(By.id("form:botonPrimario"));
         iterator.click();
         logIN("1234567", "1");
-        esperar(4);
+        esperar(6);
         iterator = driver.findElement(By.id("j_idt7:table:0:j_idt10"));
         iterator.click();
         textoPresentePagina(driver, "Ha votado correctamente, muchas gracias por su participación.");
@@ -198,7 +198,7 @@ public class MainControllerTest {
         iterator.sendKeys("1234567");
         iterator = driver.findElement(By.id("formId:j_idt10"));
         iterator.click();
-        esperar(3);
+        esperar(5);
         textoPresentePagina(driver, "Ya ha emitido su voto");
 
 
