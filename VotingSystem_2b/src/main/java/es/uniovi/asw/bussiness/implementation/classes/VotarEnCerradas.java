@@ -1,6 +1,7 @@
 package es.uniovi.asw.bussiness.implementation.classes;
 
 import es.uniovi.asw.dbupdate.Repository;
+import es.uniovi.asw.dbupdate.VotingR;
 import es.uniovi.asw.model.*;
 
 /**
@@ -61,9 +62,7 @@ public class VotarEnCerradas {
 
             }
 
-            Repository.voteR.save(voteClosedList);
-
-
+            new VotingR().votingClosedList(voteClosedList);
             saveTurnout(v, closedList);
 
 

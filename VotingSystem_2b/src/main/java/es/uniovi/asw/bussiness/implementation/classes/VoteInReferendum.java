@@ -1,6 +1,7 @@
 package es.uniovi.asw.bussiness.implementation.classes;
 
 import es.uniovi.asw.dbupdate.Repository;
+import es.uniovi.asw.dbupdate.VotingR;
 import es.uniovi.asw.model.*;
 
 import javax.faces.application.FacesMessage;
@@ -56,11 +57,10 @@ public class VoteInReferendum {
 
             return false;
         }
-        System.out.println(v);
 
 
-        Repository.voteR.save(voteReferendum);
 
+        new VotingR().votingReferendum(voteReferendum);
 
         saveTurnout(v,referendum);
 

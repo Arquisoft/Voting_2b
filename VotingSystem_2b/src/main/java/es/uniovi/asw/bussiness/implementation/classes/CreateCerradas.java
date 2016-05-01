@@ -1,7 +1,7 @@
 package es.uniovi.asw.bussiness.implementation.classes;
 
 import es.uniovi.asw.dbupdate.InsertRCandidature;
-import es.uniovi.asw.dbupdate.Repository;
+import es.uniovi.asw.dbupdate.InsertRElection;
 import es.uniovi.asw.model.Candidature;
 import es.uniovi.asw.model.ClosedList;
 import es.uniovi.asw.parser.RCandidatureExcel;
@@ -41,11 +41,10 @@ public class CreateCerradas {
 
             }
 
-            Repository.electionR.save(closedList);
-
+            new InsertRElection().insertClosedList(closedList);
             for (Candidature candidature : candidatures)
-            	candidature.addElection(closedList);
-            
+                candidature.addElection(closedList);
+
             new InsertRCandidature().insert(candidatures);
 
 
