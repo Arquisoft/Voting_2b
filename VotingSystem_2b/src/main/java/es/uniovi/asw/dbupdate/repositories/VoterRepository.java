@@ -1,4 +1,4 @@
-package es.uniovi.asw.dbupdate;
+package es.uniovi.asw.dbupdate.repositories;
 
 import es.uniovi.asw.model.PollingPlace;
 import es.uniovi.asw.model.Voter;

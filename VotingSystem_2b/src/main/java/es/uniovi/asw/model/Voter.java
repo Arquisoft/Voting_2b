@@ -41,7 +41,15 @@ public class Voter {
 		this.email = email;
 	}
 
-    public void setId(Long id) {
+	public Voter(String name, String nif, String email, PollingPlace pollingPlace) {
+		super();
+		this.name = name;
+		this.nif = nif;
+		this.email = email;
+		this.pollingPlace = pollingPlace;
+	}
+
+	public void setId(Long id) {
         this.id = id;
     }
 

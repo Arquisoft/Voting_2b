@@ -1,4 +1,4 @@
-package es.uniovi.asw.dbupdate;
+package es.uniovi.asw.dbupdate.repositories;
 
 public class Repository {
 

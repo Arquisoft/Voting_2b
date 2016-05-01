@@ -10,8 +10,8 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import es.uniovi.asw.dbupdate.InsertRRegion;
-import es.uniovi.asw.dbupdate.Repository;
-import es.uniovi.asw.dbupdate.RepositoryConfiguration;
+import es.uniovi.asw.dbupdate.repositories.Repository;
+import es.uniovi.asw.dbupdate.repositories.RepositoryConfiguration;
 import es.uniovi.asw.model.Constituency;
 import es.uniovi.asw.model.Region;
 import es.uniovi.asw.parser.RRegionExcel;

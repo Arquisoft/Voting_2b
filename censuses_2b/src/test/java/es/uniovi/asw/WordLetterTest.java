@@ -8,10 +8,19 @@ import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import es.uniovi.asw.dbupdate.repositories.Repository;
+import es.uniovi.asw.dbupdate.repositories.RepositoryConfiguration;
+import es.uniovi.asw.model.PollingPlace;
 import es.uniovi.asw.model.Voter;
 import es.uniovi.asw.personalLetters.PersonalLetterGenerator;
 import es.uniovi.asw.reportGeneration.PasswordGenerator;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = {LoadUsers.class, RepositoryConfiguration.class})
 public class WordLetterTest {
 
 	private PersonalLetterGenerator letterGenerator;
@@ -20,8 +29,16 @@ public class WordLetterTest {
 
 	@Before
 	public void setUp() {
+		
+		PollingPlace pollingP = Repository.pollingPlaceR.findOne(350L);
+		if (pollingP == null) {
+				pollingP = new PollingPlace();
+				pollingP.setId(350L);
+		}
+		
+		Repository.pollingPlaceR.save(pollingP);
 
-		voter = new Voter("Ignacio Fernandez Fernandez", "56378435A", "ignacio@uniovi.es", 350);
+		voter = new Voter("Ignacio Fernandez Fernandez", "56378435A", "ignacio@uniovi.es", pollingP);
 		voters = new ArrayList<Voter>();
 		voters.add(voter);
 		letterGenerator = new PersonalLetterGenerator(voters);

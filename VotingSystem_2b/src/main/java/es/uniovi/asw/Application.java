@@ -35,7 +35,7 @@ import com.sun.faces.config.ConfigureListener;
 
 import es.uniovi.asw.configuration.ViewScope;
 import es.uniovi.asw.dbupdate.InsertRRegion;
-import es.uniovi.asw.dbupdate.Repository;
+import es.uniovi.asw.dbupdate.repositories.Repository;
 import es.uniovi.asw.model.Voter;
 import es.uniovi.asw.parser.RRegionExcel;
 import es.uniovi.asw.presentation.BeanConfigElection;

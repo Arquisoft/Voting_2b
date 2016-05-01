@@ -1,7 +1,7 @@
 package es.uniovi.asw.bussiness.implementation.classes;
 
-import es.uniovi.asw.dbupdate.Repository;
 import es.uniovi.asw.dbupdate.VotingR;
+import es.uniovi.asw.dbupdate.repositories.Repository;
 import es.uniovi.asw.model.Candidature;
 import es.uniovi.asw.model.ClosedList;
 import es.uniovi.asw.model.VoteClosedList;

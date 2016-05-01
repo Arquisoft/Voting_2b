@@ -1,4 +1,4 @@
-package es.uniovi.asw.dbupdate;
+package es.uniovi.asw.dbupdate.repositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

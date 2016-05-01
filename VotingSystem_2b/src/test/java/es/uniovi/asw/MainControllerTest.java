@@ -1,7 +1,8 @@
 package es.uniovi.asw;
 
 import es.uniovi.asw.bussiness.Factories;
-import es.uniovi.asw.dbupdate.Repository;
+import es.uniovi.asw.dbupdate.repositories.Repository;
+import es.uniovi.asw.dbupdate.repositories.RepositoryConfiguration;
 import es.uniovi.asw.model.*;
 import org.junit.*;
 import org.junit.runner.RunWith;
@@ -14,8 +15,6 @@ import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-
-import es.uniovi.asw.dbupdate.RepositoryConfiguration;
 
 import java.util.Calendar;
 import java.util.List;

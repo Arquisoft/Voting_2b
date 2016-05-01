@@ -2,6 +2,7 @@ package es.uniovi.asw.dbupdate;
 
 import java.util.List;
 
+import es.uniovi.asw.dbupdate.repositories.Repository;
 import es.uniovi.asw.model.PollingPlace;
 import es.uniovi.asw.model.Vote;
 import es.uniovi.asw.model.VoteClosedList;

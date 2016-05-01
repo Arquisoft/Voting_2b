@@ -13,20 +13,21 @@ import java.util.List;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import es.uniovi.asw.dbupdate.repositories.Repository;
+import es.uniovi.asw.dbupdate.repositories.RepositoryConfiguration;
+import es.uniovi.asw.model.PollingPlace;
 import es.uniovi.asw.model.Voter;
-import es.uniovi.asw.parser.Parser;
 import es.uniovi.asw.parser.RCensusExcel;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = {LoadUsers.class, RepositoryConfiguration.class})
 public class ReadCensusExcelTest {
 
-	@BeforeClass
-	public static void initialize() {
-		LoadUsers.main("//test");
-	}
-	
 	@Test
 	public void testReadEmpty() {
 		List<Voter> voters = new RCensusExcel().read("src/test/resources/testEmpty.xlsx");
@@ -83,39 +84,71 @@ public class ReadCensusExcelTest {
 		
 		Voter voterToCheck;
 		
+		PollingPlace pollingP = Repository.pollingPlaceR.findOne(5000L);
+		if (pollingP == null) {
+				pollingP = new PollingPlace();
+				pollingP.setId(5000L);
+		}
+		
+		Repository.pollingPlaceR.save(pollingP);
+		
 		for (int i=1; i< letras.length(); i++) {
 			voterToCheck = new Voter("nombreTestWrite" + i,
 									"9999999" + i%10 + letras.charAt(i),
 									"emailTestWrite" + i + "@test.com",
-									5000);
+									pollingP);
 			assertEquals(voterToCheck, voters.get(i-1));
-			assertNotNull(Parser.voterRepository.findByEmail(voterToCheck.getEmail()));
-			Parser.voterRepository.delete(Parser.voterRepository.findByEmail(voterToCheck.getEmail()));
+			assertNotNull(Repository.voterR.findByEmail(voterToCheck.getEmail()));
+			Repository.voterR.delete(Repository.voterR.findByEmail(voterToCheck.getEmail()));
 		}
 	
 	}
 	
 	@Test
 	public void testRight() {
-		List<Voter> voters = new RCensusExcel().read("src/test/resources/testRight.xlsx");
+		new RCensusExcel().read("src/test/resources/testRight.xlsx");
+		
+		PollingPlace pollingP1 = Repository.pollingPlaceR.findOne(350L);
+		if (pollingP1 == null) {
+				pollingP1 = new PollingPlace();
+				pollingP1.setId(350L);
+		}
+		
+		Repository.pollingPlaceR.save(pollingP1);
+		
+		PollingPlace pollingP2 = Repository.pollingPlaceR.findOne(440L);
+		if (pollingP2 == null) {
+				pollingP2 = new PollingPlace();
+				pollingP2.setId(440L);
+		}
+		
+		Repository.pollingPlaceR.save(pollingP2);
+		
+		PollingPlace pollingP3 = Repository.pollingPlaceR.findOne(220L);
+		if (pollingP3 == null) {
+				pollingP3 = new PollingPlace();
+				pollingP3.setId(220L);
+		}
+		
+		Repository.pollingPlaceR.save(pollingP3);
 		
 		List<Voter> votersToCheck = new ArrayList<Voter>();
 		votersToCheck.add(new Voter("Ignacio Fernandez Fernandez", 
 							"56378435A",
 							"ignacio@uniovi.es",
-							350));
+							pollingP1));
 		votersToCheck.add(new Voter("Nauce Lopez Gonzalez", 
 				"53678541Z",
 				"nauce@uniovi.es",
-				440));
+				pollingP2));
 		votersToCheck.add(new Voter("Jorge Riopedre Vega", 
 				"48976526C",
 				"jorge@uniovi.es",
-				220));
+				pollingP3));
 		
 		for (Voter voter:votersToCheck) {
-			Assert.assertNotNull(Parser.voterRepository.findByEmail(voter.getEmail()));
-			Parser.voterRepository.delete(Parser.voterRepository.findByEmail(voter.getEmail()));
+			Assert.assertNotNull(Repository.voterR.findByEmail(voter.getEmail()));
+			Repository.voterR.delete(Repository.voterR.findByEmail(voter.getEmail()));
 		}
 	}
 

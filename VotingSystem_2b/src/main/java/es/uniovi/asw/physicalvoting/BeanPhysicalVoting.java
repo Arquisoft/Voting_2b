@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import es.uniovi.asw.dbupdate.GetHasVotedR;
 import es.uniovi.asw.dbupdate.InsertHasVotedR;
-import es.uniovi.asw.dbupdate.Repository;
+import es.uniovi.asw.dbupdate.repositories.Repository;
 import es.uniovi.asw.model.Turnout;
 import es.uniovi.asw.model.Voter;
 

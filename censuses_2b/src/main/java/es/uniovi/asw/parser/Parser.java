@@ -3,9 +3,6 @@ package es.uniovi.asw.parser;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import es.uniovi.asw.dbupdate.VoterRepository;
 import es.uniovi.asw.util.Console;
 
 /**
@@ -28,8 +25,6 @@ import es.uniovi.asw.util.Console;
  */
 public class Parser {
 
-	@Autowired
-	public static VoterRepository voterRepository;
 	private static String command = "";
 	
 	public static void run(String... args) {

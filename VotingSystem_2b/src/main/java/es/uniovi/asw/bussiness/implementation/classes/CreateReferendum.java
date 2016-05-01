@@ -2,7 +2,7 @@ package es.uniovi.asw.bussiness.implementation.classes;
 
 import es.uniovi.asw.dbupdate.InsertElection;
 import es.uniovi.asw.dbupdate.InsertRElection;
-import es.uniovi.asw.dbupdate.Repository;
+import es.uniovi.asw.dbupdate.repositories.Repository;
 import es.uniovi.asw.model.Referendum;
 
 /**

@@ -1,4 +1,4 @@
-package es.uniovi.asw.dbupdate;
+package es.uniovi.asw.dbupdate.repositories;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
