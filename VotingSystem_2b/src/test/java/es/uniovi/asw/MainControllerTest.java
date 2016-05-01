@@ -173,10 +173,12 @@ public class MainControllerTest {
     public void test09() {
 
         creaCerradas();
+        esperar(10);
         iterator = driver.findElement(By.id("form:botonPrimario"));
+        esperar(5);
         iterator.click();
         logIN("1234567", "1");
-        esperar(6);
+        esperar(10);
         iterator = driver.findElement(By.id("j_idt7:table:0:j_idt10"));
         iterator.click();
         esperar(3);
