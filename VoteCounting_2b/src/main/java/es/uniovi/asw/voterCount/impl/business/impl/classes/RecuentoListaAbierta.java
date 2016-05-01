@@ -1,4 +1,4 @@
-package es.uniovi.asw.voterCount.business.impl.classes;
+package es.uniovi.asw.voterCount.impl.business.impl.classes;
 
 import java.util.HashMap;
 import java.util.HashSet;

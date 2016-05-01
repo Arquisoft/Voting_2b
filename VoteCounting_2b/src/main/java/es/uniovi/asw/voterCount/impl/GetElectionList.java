@@ -1,4 +1,4 @@
-package es.uniovi.asw.voteSearch;
+package es.uniovi.asw.voterCount.impl;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -17,7 +17,7 @@ import es.uniovi.asw.dbManagement.persistence.Repository;
 
 @Component("BeanListaElecciones")
 @Scope("request")
-public class BeanListaElecciones
+public class GetElectionList
 {
 	public List<Election> elecciones;
 	public List<Referendum> referendums;

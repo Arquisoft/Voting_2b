@@ -1,10 +1,11 @@
-package es.uniovi.asw.voterResult.business.observer;
+package es.uniovi.asw.voterResult.impl.business.observer;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import es.uniovi.asw.voterResult.business.polls.Poll;
+import es.uniovi.asw.voterResult.impl.business.polls.Poll;
+
 
 public class Observer {
 

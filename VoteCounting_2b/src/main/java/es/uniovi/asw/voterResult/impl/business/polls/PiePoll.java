@@ -1,4 +1,4 @@
-package es.uniovi.asw.voterResult.business.polls;
+package es.uniovi.asw.voterResult.impl.business.polls;
 
 import java.util.Map;
 import org.primefaces.model.chart.PieChartModel;

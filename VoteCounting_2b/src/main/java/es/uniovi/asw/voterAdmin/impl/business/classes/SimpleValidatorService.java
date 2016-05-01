@@ -1,8 +1,8 @@
-package es.uniovi.asw.voterCount.business.impl;
+package es.uniovi.asw.voterAdmin.impl.business.classes;
 
 import es.uniovi.asw.dbManagement.model.User;
 import es.uniovi.asw.dbManagement.persistence.Repository;
-import es.uniovi.asw.voterCount.business.ValidatorService;
+import es.uniovi.asw.voterAdmin.impl.business.ValidatorService;
 
 
 public class SimpleValidatorService implements ValidatorService

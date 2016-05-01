@@ -1,4 +1,4 @@
-package es.uniovi.asw.voterResult;
+package es.uniovi.asw.voterResult.impl;
 
 import java.util.Map;
 
@@ -7,14 +7,17 @@ import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.PieChartModel;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import es.uniovi.asw.voterCount.BeanRecuentoVotos;
-import es.uniovi.asw.voterResult.business.observer.Observer;
-import es.uniovi.asw.voterResult.business.polls.BarPoll;
-import es.uniovi.asw.voterResult.business.polls.PiePoll;
+
+import es.uniovi.asw.voterCount.impl.GetCountP;
+import es.uniovi.asw.voterResult.ShowResults;
+import es.uniovi.asw.voterResult.impl.business.observer.Observer;
+import es.uniovi.asw.voterResult.impl.business.polls.BarPoll;
+import es.uniovi.asw.voterResult.impl.business.polls.PiePoll;
+
 
 @Component("BeanResultados")
 @Scope("session")
-public class BeanMostrarResultados {
+public class ShowResultsP implements ShowResults{
 
 	private Observer observer;
 	
@@ -37,7 +40,7 @@ public class BeanMostrarResultados {
 		observer.adscribir(barModel);
 		observer.adscribir(pieModel1);
 
-		BeanRecuentoVotos brv = (BeanRecuentoVotos) FacesContext.getCurrentInstance().getExternalContext()
+		GetCountP brv = (GetCountP) FacesContext.getCurrentInstance().getExternalContext()
 				.getSessionMap().get("BeanRecuento");
 
 		if (brv.getTipoEleccion().equals("Referendum")) {

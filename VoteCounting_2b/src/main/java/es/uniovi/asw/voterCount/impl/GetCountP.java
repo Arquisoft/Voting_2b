@@ -1,4 +1,4 @@
-package es.uniovi.asw.voterCount;
+package es.uniovi.asw.voterCount.impl;
 import java.util.Map;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -6,12 +6,14 @@ import es.uniovi.asw.dbManagement.model.ClosedList;
 import es.uniovi.asw.dbManagement.model.Election;
 import es.uniovi.asw.dbManagement.model.OpenList;
 import es.uniovi.asw.dbManagement.model.Referendum;
-import es.uniovi.asw.voterCount.business.RecuentoService;
-import es.uniovi.asw.voterCount.infrastructure.Factories;
+import es.uniovi.asw.voterCount.GetCount;
+import es.uniovi.asw.voterCount.impl.business.RecuentoService;
+import es.uniovi.asw.voterCount.impl.infrastructure.Factories;
+
 
 @Component("BeanRecuento")
 @Scope("session")
-public class BeanRecuentoVotos {
+public class GetCountP implements GetCount{
 	
 	private String tipoEleccion;
 	private String nombreEleccion;
@@ -23,9 +25,6 @@ public class BeanRecuentoVotos {
 	
 	public void recuentoVotos(Election e) {;
 	
-		//TODO
-		//TimerBBDD.mantenimientoBBDD();
-
 		RecuentoService recuento = Factories.services.createRecuentoService();
 
 		if (e instanceof Referendum) {

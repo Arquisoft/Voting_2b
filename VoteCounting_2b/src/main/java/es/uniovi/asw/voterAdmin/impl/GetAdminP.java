@@ -1,15 +1,17 @@
-package es.uniovi.asw.voterCount;
+package es.uniovi.asw.voterAdmin.impl;
 
 import javax.faces.context.FacesContext;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import es.uniovi.asw.voterCount.business.ValidatorService;
-import es.uniovi.asw.voterCount.business.impl.SimpleValidatorService;
+
+import es.uniovi.asw.voterAdmin.GetAdmin;
+import es.uniovi.asw.voterAdmin.impl.business.ValidatorService;
+import es.uniovi.asw.voterAdmin.impl.business.classes.SimpleValidatorService;
 
 @Component("BeanValidator")
 @Scope("session")
-public class BeanValidator {
+public class GetAdminP implements GetAdmin{
 	
 	private String email;
 	private String password;
