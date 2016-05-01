@@ -46,9 +46,8 @@ public class VoteInAbiertas {
                 }
 
 
-                new VotingR().votingOpenList(voteOpenList);
+                VoteOpenList v =  new VotingR().votingOpenList(voteOpenList,voter,openlist);
             }
-            saveTurnout(voter, openlist);
 
 
 
@@ -58,25 +57,5 @@ public class VoteInAbiertas {
         }
     }
 
-    private void saveTurnout(Voter v, OpenList openlist) {
 
-        Turnout turnout = new Turnout();
-        turnout.setElection(openlist);
-        turnout.setVoter(v);
-        Repository.turnoutR.merge(turnout);
-    }
-
-
-    private boolean hasAlreadyVoted(Voter v, Election election) {
-
-
-        Turnout t = Repository.turnoutR.findByVoterAndElection(v, election);
-
-        if (t == null) {
-
-            return false;
-        }
-        return true;
-
-    }
 }

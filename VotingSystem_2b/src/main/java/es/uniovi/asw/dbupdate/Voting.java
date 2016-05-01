@@ -8,11 +8,11 @@ import es.uniovi.asw.model.*;
 public interface Voting {
 
 
-    VoteClosedList votingClosedList(VoteClosedList closedList);
+    VoteClosedList votingClosedList(VoteClosedList voteClosedList,Voter v,ClosedList closedList);
 
-    VoteOpenList votingOpenList(VoteOpenList openList);
+    VoteOpenList votingOpenList(VoteOpenList voteOpenList, Voter c, OpenList openList);
 
-    VoteReferendum votingReferendum(VoteReferendum voteReferendum);
+    VoteReferendum votingReferendum(VoteReferendum voteReferendum,Voter v, Referendum referendum);
 
 
 }

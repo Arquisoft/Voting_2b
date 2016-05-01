@@ -2,10 +2,9 @@ package es.uniovi.asw.bussiness.implementation.classes;
 
 import es.uniovi.asw.dbupdate.Repository;
 import es.uniovi.asw.dbupdate.VotingR;
-import es.uniovi.asw.model.*;
-
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
+import es.uniovi.asw.model.Referendum;
+import es.uniovi.asw.model.VoteReferendum;
+import es.uniovi.asw.model.Voter;
 
 /**
  * Created by ignaciofernandezalvarez on 16/4/16.
@@ -20,9 +19,9 @@ public class VoteInReferendum {
 
     public VoteInReferendum(Referendum referendum, String selectedValue, Voter v) {
 
-        this.referendum=referendum;
-        this.selectedValue=selectedValue;
-        this.v=v;
+        this.referendum = referendum;
+        this.selectedValue = selectedValue;
+        this.v = v;
 
     }
 
@@ -53,43 +52,16 @@ public class VoteInReferendum {
 
         }
 
-        if (hasAlreadyVoted(v, referendum)) {
 
+        VoteReferendum vr = new VotingR().votingReferendum(voteReferendum, v, referendum);
+
+        if (vr == null) {
             return false;
         }
-
-
-
-        new VotingR().votingReferendum(voteReferendum);
-
-        saveTurnout(v,referendum);
-
 
         return true;
 
     }
 
-
-    private void saveTurnout(Voter v,Referendum referendum) {
-
-        Turnout turnout = new Turnout();
-        turnout.setElection(referendum);
-        turnout.setVoter(v);
-        Repository.turnoutR.merge(turnout);
-    }
-
-
-    private boolean hasAlreadyVoted(Voter v, Election election) {
-
-
-        Turnout t = Repository.turnoutR.findByVoterAndElection(v, election);
-
-        if (t == null) {
-
-            return false;
-        }
-        return true;
-
-    }
 
 }

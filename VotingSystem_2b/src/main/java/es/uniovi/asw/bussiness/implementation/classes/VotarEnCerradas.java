@@ -2,7 +2,10 @@ package es.uniovi.asw.bussiness.implementation.classes;
 
 import es.uniovi.asw.dbupdate.Repository;
 import es.uniovi.asw.dbupdate.VotingR;
-import es.uniovi.asw.model.*;
+import es.uniovi.asw.model.Candidature;
+import es.uniovi.asw.model.ClosedList;
+import es.uniovi.asw.model.VoteClosedList;
+import es.uniovi.asw.model.Voter;
 
 /**
  * Created by ignaciofernandezalvarez on 20/4/16.
@@ -19,27 +22,6 @@ public class VotarEnCerradas {
         this.v = v;
     }
 
-    private void saveTurnout(Voter v, ClosedList closedList) {
-
-        Turnout turnout = new Turnout();
-        turnout.setElection(closedList);
-        turnout.setVoter(v);
-        Repository.turnoutR.merge(turnout);
-    }
-
-
-    private boolean hasAlreadyVoted(Voter v, Election election) {
-
-
-        Turnout t = Repository.turnoutR.findByVoterAndElection(v, election);
-
-        if (t == null) {
-
-            return false;
-        }
-        return true;
-
-    }
 
     public boolean votar() {
 
@@ -62,8 +44,7 @@ public class VotarEnCerradas {
 
             }
 
-            new VotingR().votingClosedList(voteClosedList);
-            saveTurnout(v, closedList);
+            VoteClosedList vc = new VotingR().votingClosedList(voteClosedList, v, closedList);
 
 
             return true;

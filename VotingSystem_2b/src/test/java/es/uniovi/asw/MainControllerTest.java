@@ -180,6 +180,7 @@ public class MainControllerTest {
         esperar(6);
         iterator = driver.findElement(By.id("j_idt7:table:0:j_idt10"));
         iterator.click();
+        esperar(3);
         textoPresentePagina(driver, "Ha votado correctamente, muchas gracias por su participación.");
 
 
@@ -196,6 +197,7 @@ public class MainControllerTest {
         iterator = driver.findElement(By.id("input_formId:j_idt9"));
         iterator.click();
         iterator.sendKeys("1234567");
+        esperar(2);
         iterator = driver.findElement(By.id("formId:j_idt10"));
         iterator.click();
         esperar(5);
