@@ -13,100 +13,85 @@ import es.uniovi.asw.dbManagement.model.Election;
 import es.uniovi.asw.dbManagement.model.OpenList;
 import es.uniovi.asw.dbManagement.model.Referendum;
 import es.uniovi.asw.dbManagement.persistence.Repository;
-
+import es.uniovi.asw.voterCount.GetElectionList;
 
 @Component("BeanListaElecciones")
 @Scope("request")
-public class GetElectionList
-{
+public class GetElectionListP  implements GetElectionList{
 	public List<Election> elecciones;
 	public List<Referendum> referendums;
 	public List<OpenList> listasAbiertas;
 	public List<ClosedList> listasCerradas;
 	public List<Election> listaSinRecuento;
-	
-	
-	public List<Election> getListaSinRecuento()
-	{
+
+	public List<Election> getListaSinRecuento() {
 		return listaSinRecuento;
 	}
-	
-	
-	public void setListaSinRecuento(List<Election> listaSinRecuento)
-	{
+
+	public void setListaSinRecuento(List<Election> listaSinRecuento) {
 		this.listaSinRecuento = listaSinRecuento;
 	}
-	
-	
+
 	@PostConstruct
-	public void init()
-	{
+	public void init() {
+		listarElecciones();
+
+	}
+
+	public void listarElecciones() {
 		this.elecciones = (List<Election>) Repository.electionR.findAll();
-		
+
 		referendums = new LinkedList<>();
-		listasCerradas= new LinkedList<>();
-		listasAbiertas= new LinkedList<>();
-		listaSinRecuento= new LinkedList<>();
-		
-		for(Election e:elecciones)
-		{
-			if(e instanceof Referendum)
-			{
+		listasCerradas = new LinkedList<>();
+		listasAbiertas = new LinkedList<>();
+		listaSinRecuento = new LinkedList<>();
+
+		for (Election e : elecciones) {
+			if (e instanceof Referendum) {
 				referendums.add((Referendum) e);
 			}
-			
-			if(e instanceof ClosedList)
-			{
+
+			if (e instanceof ClosedList) {
 				listasCerradas.add((ClosedList) e);
 			}
-			
-			if(e instanceof OpenList)
+
+			if (e instanceof OpenList)
 				listasAbiertas.add((OpenList) e);
-			
-			if(!e.readyToRecount())
+
+			if (!e.readyToRecount())
 				listaSinRecuento.add(e);
 		}
-		
 	}
-	
-	
-	public List<Election> getElecciones()
-	{
+
+	public List<Election> getElecciones() {
 		return elecciones;
 	}
-	
-	public void setElecciones(List<Election> elecciones)
-	{
+
+	public void setElecciones(List<Election> elecciones) {
 		this.elecciones = elecciones;
 	}
-	
-	public List<Referendum> getReferendums()
-	{
+
+	public List<Referendum> getReferendums() {
 		return referendums;
 	}
-	
-	public void setReferendums(List<Referendum> referendums)
-	{
+
+	public void setReferendums(List<Referendum> referendums) {
 		this.referendums = referendums;
 	}
-	
-	public List<OpenList> getListasAbiertas()
-	{
+
+	public List<OpenList> getListasAbiertas() {
 		return listasAbiertas;
 	}
-	
-	public void setListasAbiertas(List<OpenList> listasAbiertas)
-	{
+
+	public void setListasAbiertas(List<OpenList> listasAbiertas) {
 		this.listasAbiertas = listasAbiertas;
 	}
-	
-	public List<ClosedList> getListasCerradas()
-	{
+
+	public List<ClosedList> getListasCerradas() {
 		return listasCerradas;
 	}
-	
-	public void setListasCerradas(List<ClosedList> listasCerradas)
-	{
+
+	public void setListasCerradas(List<ClosedList> listasCerradas) {
 		this.listasCerradas = listasCerradas;
 	}
 }
