@@ -1,11 +1,18 @@
 package es.uniovi.asw;
 
-import es.uniovi.asw.bussiness.Factories;
-import es.uniovi.asw.configElection.InsertPElection;
-import es.uniovi.asw.dbupdate.repositories.Repository;
-import es.uniovi.asw.dbupdate.repositories.RepositoryConfiguration;
-import es.uniovi.asw.model.*;
-import org.junit.*;
+import static es.uniovi.asw.TestingUtils.EsperaCargaPaginaxpath;
+import static es.uniovi.asw.TestingUtils.esperar;
+import static es.uniovi.asw.TestingUtils.insertVoterDB;
+import static es.uniovi.asw.TestingUtils.restoreDB;
+import static es.uniovi.asw.TestingUtils.textoPresentePagina;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Calendar;
+import java.util.List;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -17,11 +24,13 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import java.util.Calendar;
-import java.util.List;
-
-import static es.uniovi.asw.TestingUtils.*;
-import static org.junit.Assert.assertTrue;
+import es.uniovi.asw.dbupdate.InsertElectionInfoP;
+import es.uniovi.asw.dbupdate.repositories.Repository;
+import es.uniovi.asw.dbupdate.repositories.RepositoryConfiguration;
+import es.uniovi.asw.model.Candidate;
+import es.uniovi.asw.model.ClosedList;
+import es.uniovi.asw.model.Election;
+import es.uniovi.asw.model.OpenList;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Application.class, RepositoryConfiguration.class})
@@ -164,7 +173,7 @@ public class MainControllerTest {
         openList.setNumChoices(1);
         c.add(Calendar.DATE, 2);
         openList.setExpiryDate(c.getTime());
-        Object result = new InsertPElection(true).insertOpenList(openList);
+        Object result = new InsertElectionInfoP(true).insertOpenList(openList);
         assertTrue(result!=null);
 
 
@@ -234,7 +243,7 @@ public class MainControllerTest {
         });
         Repository.electionR.deleteAll();
 
-        Object result = new InsertPElection(true).insertClosedList(closedList);
+        Object result = new InsertElectionInfoP(true).insertClosedList(closedList);
         assertTrue(result!=null);
 
     }

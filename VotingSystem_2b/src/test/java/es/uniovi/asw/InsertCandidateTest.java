@@ -10,12 +10,12 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import es.uniovi.asw.dbupdate.InsertRCandidate;
 import es.uniovi.asw.dbupdate.repositories.Repository;
 import es.uniovi.asw.dbupdate.repositories.RepositoryConfiguration;
+import es.uniovi.asw.electionday.InsertElectoralListsR;
+import es.uniovi.asw.electionday.parser.RCandidateExcel;
 import es.uniovi.asw.model.Candidate;
 import es.uniovi.asw.model.Candidature;
-import es.uniovi.asw.parser.RCandidateExcel;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Application.class, RepositoryConfiguration.class})
@@ -39,7 +39,7 @@ public class InsertCandidateTest {
 	@Test
 	public void testDeComprobacion() {
 		List<Candidate> candidatos = new RCandidateExcel().read("src/test/resources/testCandidatosInsercion.xlsx");
-		new InsertRCandidate().insert(candidatos);
+		new InsertElectoralListsR().insertCandidates(candidatos);
 		System.out.println(Repository.candidateR.count());
 		Candidature c = new Candidature();
 		c = Repository.candidatureR.findByName("EE");
@@ -57,7 +57,7 @@ public class InsertCandidateTest {
 			assertNull(cand2.getDNI());
 			assertNull(cand2.getSurname());
 		}
-		new InsertRCandidate().insert(candidatos);
+		new InsertElectoralListsR().insertCandidates(candidatos);
 	}
 
 }

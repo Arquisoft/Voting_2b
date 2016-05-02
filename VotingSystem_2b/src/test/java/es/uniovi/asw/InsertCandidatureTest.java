@@ -1,6 +1,6 @@
 package es.uniovi.asw;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
@@ -9,11 +9,11 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import es.uniovi.asw.dbupdate.InsertRCandidature;
 import es.uniovi.asw.dbupdate.repositories.Repository;
 import es.uniovi.asw.dbupdate.repositories.RepositoryConfiguration;
+import es.uniovi.asw.electionday.InsertElectoralListsR;
+import es.uniovi.asw.electionday.parser.RCandidatureExcel;
 import es.uniovi.asw.model.Candidature;
-import es.uniovi.asw.parser.RCandidatureExcel;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Application.class, RepositoryConfiguration.class})
@@ -31,11 +31,11 @@ public class InsertCandidatureTest {
 	public void testInsercionDeCandidaturas() {
 		List<Candidature> candidaturas = new RCandidatureExcel().read("src/test/resources/testCandidaturesInsercion.xlsx");
 		assertEquals(4,candidaturas.size());
-		new InsertRCandidature().insert(candidaturas);
+		new InsertElectoralListsR().insertCandidatures(candidaturas);
 		assertEquals("Inicio4",Repository.candidatureR.findByName("Candidatura4").getInitial());
 		assertEquals("Inicio5",Repository.candidatureR.findByName("Candidatura5").getInitial());
 		assertEquals("Inicio7",Repository.candidatureR.findByName("Candidatura7").getInitial());
-		new InsertRCandidature().insert(candidaturas);
+		new InsertElectoralListsR().insertCandidatures(candidaturas);
 	}
 
 }

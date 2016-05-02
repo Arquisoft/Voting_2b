@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.junit.Test;
 
+import es.uniovi.asw.electionday.parser.CheckFailsRegion;
+import es.uniovi.asw.electionday.parser.RRegionExcel;
 import es.uniovi.asw.model.Region;
-import es.uniovi.asw.parser.CheckFailsRegion;
-import es.uniovi.asw.parser.RRegionExcel;
 
 public class CheckFailsRegionTest {
 

@@ -1,20 +1,20 @@
 package es.uniovi.asw;
 
+import static org.springframework.test.util.AssertionErrors.assertTrue;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import es.uniovi.asw.dbupdate.repositories.Repository;
 import es.uniovi.asw.model.Constituency;
 import es.uniovi.asw.model.PollingPlace;
 import es.uniovi.asw.model.Region;
 import es.uniovi.asw.model.Voter;
-import org.apache.tomcat.jni.Thread;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.util.List;
-
-import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 /**
  * Created by Ignacio Fernandez on 21/04/2016.
@@ -31,8 +31,6 @@ public class TestingUtils {
     {
         WebElement resultado =
                 (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-        List<WebElement> elementos = driver.findElements(By.xpath(xpath));
-
         return resultado;
     }
 

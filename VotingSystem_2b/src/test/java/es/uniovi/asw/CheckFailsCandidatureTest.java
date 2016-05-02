@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.junit.Test;
 
+import es.uniovi.asw.electionday.parser.CheckFailsCandidature;
+import es.uniovi.asw.electionday.parser.RCandidatureExcel;
 import es.uniovi.asw.model.Candidature;
-import es.uniovi.asw.parser.CheckFailsCandidature;
-import es.uniovi.asw.parser.RCandidatureExcel;
 
 public class CheckFailsCandidatureTest {
 

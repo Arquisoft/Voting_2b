@@ -1,4 +1,4 @@
-package es.uniovi.asw.physicalVoting;
+package es.uniovi.asw.physicalvoting;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -7,8 +7,6 @@ import javax.faces.context.FacesContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import es.uniovi.asw.dbupdate.GetHasVotedR;
-import es.uniovi.asw.dbupdate.InsertHasVotedR;
 import es.uniovi.asw.dbupdate.repositories.Repository;
 import es.uniovi.asw.model.Turnout;
 import es.uniovi.asw.model.Voter;

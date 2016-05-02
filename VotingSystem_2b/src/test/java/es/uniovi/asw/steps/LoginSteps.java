@@ -10,8 +10,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.IntegrationTest;
-import org.springframework.boot.test.SpringApplicationContextLoader;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -21,7 +19,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import es.uniovi.asw.Application;
 import es.uniovi.asw.dbupdate.repositories.Repository;
 import es.uniovi.asw.model.Referendum;
 
@@ -43,7 +40,6 @@ public class LoginSteps {
 
 	WebDriver driver;
 	WebElement iterator;
-
 	
 	public LoginSteps() {
 
@@ -96,6 +92,7 @@ public class LoginSteps {
 //        iterator = driver.findElement(By.id("formulario:botonLogin"));
 //        Assert.assertNotNull(iterator);
         driver.close();
+        Repository.electionR.delete(Repository.electionR.findActual().getId());
 	}
     
 

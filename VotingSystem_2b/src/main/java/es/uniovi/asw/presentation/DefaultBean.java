@@ -1,7 +1,5 @@
 package es.uniovi.asw.presentation;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -9,30 +7,19 @@ import org.springframework.stereotype.Component;
 @Scope("view")
 public class DefaultBean {
 
-    private String key = "Propiedad leída del bean";
+	private String key = "Propiedad leída del bean";
 
+	public String getKey() {
+		return key;
+	}
 
+	public void setKey(String key) {
+		this.key = key;
+	}
 
-    @PostConstruct
-    void init() {
-        System.out.println("DefaultBean creado");
-    }
+	public String action() {
 
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String action() {
-
-
-        return "exito";
-    }
-
-
-
+		return "exito";
+	}
 
 }
