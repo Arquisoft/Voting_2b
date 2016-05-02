@@ -1,4 +1,4 @@
-package es.uniovi.asw.presentation;
+package es.uniovi.asw.configElection;
 
 import es.uniovi.asw.bussiness.Factories;
 import org.springframework.context.annotation.Scope;

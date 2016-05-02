@@ -1,5 +1,7 @@
 package es.uniovi.asw.dbupdate;
 
+import java.util.List;
+import es.uniovi.asw.onlineVoting.VotingP;
 import es.uniovi.asw.model.*;
 
 /**
@@ -8,17 +10,17 @@ import es.uniovi.asw.model.*;
 public class VotingR implements  Voting {
 
     @Override
-    public VoteClosedList votingClosedList(VoteClosedList voteClosedList, Voter v, ClosedList closedList) {
-        return new VotingP().votingClosedList(voteClosedList,v,closedList);
+    public VoteClosedList votingClosedList(String partyVoted, Voter v, ClosedList closedList) {
+        return new VotingP().votingClosedList(partyVoted,v,closedList);
     }
 
     @Override
-    public VoteOpenList votingOpenList(VoteOpenList voteOpenList, Voter c, OpenList openList) {
-        return new VotingP().votingOpenList(voteOpenList,c,openList);
+    public VoteOpenList votingOpenList(List<Candidate> candidates, Voter c, OpenList openList) {
+        return new VotingP().votingOpenList(candidates,c,openList);
     }
 
     @Override
-    public VoteReferendum votingReferendum(VoteReferendum voteReferendum, Voter v, Referendum referendum) {
-        return new VotingP().votingReferendum(voteReferendum,v,referendum);
+    public VoteReferendum votingReferendum(String selectedValue, Voter v, Referendum referendum) {
+        return new VotingP().votingReferendum(selectedValue,v,referendum);
     }
 }

@@ -8,15 +8,8 @@ import es.uniovi.asw.bussiness.*;
 public class BussinesFactoryImpl implements BussinesFactory {
 
 
-    @Override
-    public ElectionFactory createElectionFactory() {
-        return new ElectionFactoryImpl();
-    }
 
-    @Override
-    public VoteFactory createVoteFactory() {
-        return new VoteFactoryImpl();
-    }
+
 
     @Override
     public VoterFactory createVoterFactory() {

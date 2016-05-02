@@ -1,5 +1,6 @@
 package es.uniovi.asw.dbupdate;
 
+import es.uniovi.asw.configElection.InsertPElection;
 import es.uniovi.asw.dbupdate.repositories.Repository;
 import es.uniovi.asw.model.ClosedList;
 import es.uniovi.asw.model.OpenList;
@@ -11,18 +12,20 @@ import es.uniovi.asw.model.Referendum;
 public class InsertRElection implements InsertElection {
 
 
+
+
     @Override
     public Referendum insertReferendum(Referendum referendum) {
-        return Repository.electionR.save(referendum);
+        return new InsertPElection().insertReferendum(referendum);
     }
 
     @Override
     public OpenList insertOpenList(OpenList openList) {
-        return Repository.electionR.save(openList);
+        return new InsertPElection().insertOpenList(openList);
     }
 
     @Override
     public ClosedList insertClosedList(ClosedList closedList) {
-        return Repository.electionR.save(closedList);
+        return new InsertPElection().insertClosedList(closedList);
     }
 }

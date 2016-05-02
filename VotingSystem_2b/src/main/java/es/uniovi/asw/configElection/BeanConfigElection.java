@@ -1,4 +1,4 @@
-package es.uniovi.asw.presentation;
+package es.uniovi.asw.configElection;
 
 import es.uniovi.asw.bussiness.Factories;
 import es.uniovi.asw.model.ClosedList;
@@ -112,9 +112,9 @@ public class BeanConfigElection implements Serializable {
                 ClosedList closedList = new ClosedList();
 
                 putParameters(initialDated, expireDated, closedList);
-                boolean created = Factories.services.createElectionFactory().createCerradas(closedList, false);
+                Object created = new InsertPElection(false).insertClosedList(closedList);
 
-                if (created) {
+                if (created!=null) {
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",
                             "Elecciones creadas con exito"));
                     return "exito";
@@ -154,9 +154,9 @@ public class BeanConfigElection implements Serializable {
             } else {
                 OpenList openList = new OpenList();
                 putParameters(initialDated, expireDated, openList);
-                boolean created = Factories.services.createElectionFactory().createAbiertas(openList, false);
+                Object created = new InsertPElection().insertOpenList(openList);
 
-                if (created) {
+                if (created!=null) {
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",
                             "Elecciones creadas con exito"));
                     return "exito";
@@ -207,9 +207,9 @@ public class BeanConfigElection implements Serializable {
             putParameters(initialDated, expireDated, referendum);
             referendum.setQuestion(question);
 
-            boolean created = Factories.services.createElectionFactory().createReferendum(referendum);
+            Object created = new InsertPElection(false).insertReferendum(referendum);
 
-            if (created) {
+            if (created!=null) {
 
                 System.out.println("creoo");
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",

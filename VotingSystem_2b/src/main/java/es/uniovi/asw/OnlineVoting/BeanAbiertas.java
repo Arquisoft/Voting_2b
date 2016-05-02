@@ -1,7 +1,5 @@
-package es.uniovi.asw.presentation;
+package es.uniovi.asw.onlineVoting;
 
-import de.larmic.butterfaces.event.TableSingleSelectionListener;
-import es.uniovi.asw.bussiness.Factories;
 import es.uniovi.asw.model.*;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -77,9 +75,9 @@ public class BeanAbiertas implements Serializable {
             Map<String, Object> session = FacesContext.getCurrentInstance()
                     .getExternalContext().getSessionMap();
             Voter v = (Voter) session.get("LOGGEDIN_VOTER");
-            boolean correct = Factories.services.createVoteFactory().voteInAbiertas(openList, candidatesToVote, v);
+            Object correct = new VotingP().votingOpenList(candidatesToVote,v,openList);
 
-            if (correct) {
+            if (correct!=null) {
 
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",
                         "¡Gracias por votar!"));

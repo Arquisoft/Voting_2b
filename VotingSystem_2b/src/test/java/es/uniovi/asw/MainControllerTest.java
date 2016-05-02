@@ -1,6 +1,7 @@
 package es.uniovi.asw;
 
 import es.uniovi.asw.bussiness.Factories;
+import es.uniovi.asw.configElection.InsertPElection;
 import es.uniovi.asw.dbupdate.repositories.Repository;
 import es.uniovi.asw.dbupdate.repositories.RepositoryConfiguration;
 import es.uniovi.asw.model.*;
@@ -163,8 +164,9 @@ public class MainControllerTest {
         openList.setNumChoices(1);
         c.add(Calendar.DATE, 2);
         openList.setExpiryDate(c.getTime());
-        boolean result = Factories.services.createElectionFactory().createAbiertas(openList, true);
-        assertTrue(result);
+        Object result = new InsertPElection(true).insertOpenList(openList);
+        assertTrue(result!=null);
+
 
 
     }
@@ -232,8 +234,8 @@ public class MainControllerTest {
         });
         Repository.electionR.deleteAll();
 
-        boolean result = Factories.services.createElectionFactory().createCerradas(closedList, true);
-        assertTrue(result);
+        Object result = new InsertPElection(true).insertClosedList(closedList);
+        assertTrue(result!=null);
 
     }
 

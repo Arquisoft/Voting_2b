@@ -1,7 +1,6 @@
-package es.uniovi.asw.presentation;
+package es.uniovi.asw.onlineVoting;
 
 import de.larmic.butterfaces.event.TableSingleSelectionListener;
-import es.uniovi.asw.bussiness.Factories;
 import es.uniovi.asw.model.Candidature;
 import es.uniovi.asw.model.ClosedList;
 import es.uniovi.asw.model.Voter;
@@ -45,12 +44,12 @@ public class BeanClosedList implements Serializable, TableSingleSelectionListene
             Voter v = (Voter) session.get("LOGGEDIN_VOTER");
 
 
-            boolean hasVoted = Factories.services.createVoteFactory().voteInCerradas(closedList,inicial,v);//= Factories.services.createVoteFactory().voteInReferendum(referendum, selectedValue, v);
+            Object hasVoted = new VotingP().votingClosedList(inicial,v,closedList);//= Factories.services.createVoteFactory().voteInReferendum(referendum, selectedValue, v);
 
-            if (hasVoted) {
+            if (hasVoted!=null) {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",
                         "Ha votado correctamente, muchas gracias por su participación."));
-                voted = hasVoted;
+                voted = true;
             }
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "",

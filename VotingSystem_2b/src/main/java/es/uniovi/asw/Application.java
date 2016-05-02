@@ -38,8 +38,8 @@ import es.uniovi.asw.dbupdate.InsertRRegion;
 import es.uniovi.asw.dbupdate.repositories.Repository;
 import es.uniovi.asw.model.Voter;
 import es.uniovi.asw.parser.RRegionExcel;
-import es.uniovi.asw.presentation.BeanConfigElection;
-import es.uniovi.asw.presentation.BeanPollingPlaces;
+import es.uniovi.asw.configElection.BeanConfigElection;
+import es.uniovi.asw.configElection.BeanPollingPlaces;
 
 @Controller
 @SpringBootApplication

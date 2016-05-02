@@ -1,4 +1,4 @@
-package es.uniovi.asw.physicalvoting;
+package es.uniovi.asw.physicalVoting;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;

@@ -5,9 +5,6 @@ package es.uniovi.asw.bussiness;
  */
 public interface BussinesFactory {
 
-    ElectionFactory createElectionFactory();
-
-    VoteFactory createVoteFactory();
 
     VoterFactory createVoterFactory();
 

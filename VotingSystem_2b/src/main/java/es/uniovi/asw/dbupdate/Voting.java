@@ -1,6 +1,7 @@
 package es.uniovi.asw.dbupdate;
 
 import es.uniovi.asw.model.*;
+import java.util.List;
 
 /**
  * Created by ignaciofernandezalvarez on 1/5/16.
@@ -8,11 +9,11 @@ import es.uniovi.asw.model.*;
 public interface Voting {
 
 
-    VoteClosedList votingClosedList(VoteClosedList voteClosedList,Voter v,ClosedList closedList);
+    VoteClosedList votingClosedList(String partyVoted,Voter v,ClosedList closedList);
 
-    VoteOpenList votingOpenList(VoteOpenList voteOpenList, Voter c, OpenList openList);
+    VoteOpenList votingOpenList(List<Candidate> candidates,Voter c, OpenList openList);
 
-    VoteReferendum votingReferendum(VoteReferendum voteReferendum,Voter v, Referendum referendum);
+    VoteReferendum votingReferendum(String selectedValue,Voter v, Referendum referendum);
 
 
 }
