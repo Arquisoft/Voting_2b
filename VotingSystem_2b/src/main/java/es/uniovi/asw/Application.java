@@ -58,8 +58,11 @@ public class Application extends SpringBootServletInitializer implements Servlet
       //  new InsertRCandidate().insert(new RCandidateExcel().read("src/main/test/candidatos.xlsx"));
 
 
+        User junta = Repository.userR.findByEmailAndPassword("junta","junta");
+        if(junta==null){
         User user = new User("junta","junta","junta",1,"junta");
         Repository.userR.save(user);
+        }
 
         Voter voter = new Voter();
         voter.setName("Labra");
@@ -71,19 +74,6 @@ public class Application extends SpringBootServletInitializer implements Servlet
     		Repository.voterR.save(voter);
     	} catch (DataIntegrityViolationException e) {}
 
-        String letras="BCDEFGHIJKLMOPQRSTUVWXYZ";
-        for (int i = 0; i < 12*2; i++) {
-        	voter = new Voter();
-        	voter.setName("VotanteApp" + i);
-        	voter.setNif("88888888" + letras.charAt(i));
-        	voter.setEmail("votanteApp" + i + "uniovi.es");
-        	voter.setPassword("88888888" + letras.charAt(i));
-        	voter.setPollingPlace(Repository.pollingPlaceR.findOne((long) (9001 + (i+1)%12)));
-        	try {
-        		Repository.voterR.save(voter);
-        	} catch (DataIntegrityViolationException e) {}
-        }
-        
     }
 
     @Bean
