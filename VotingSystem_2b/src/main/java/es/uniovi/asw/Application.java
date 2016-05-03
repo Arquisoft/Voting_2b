@@ -51,6 +51,8 @@ public class Application extends SpringBootServletInitializer implements Servlet
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(Application.class);
         app.run(args);
+
+        System.out.println(Repository.voterR.count());
         new InsertElectoralListsR().insertRegions(new RRegionExcel().read("src/main/test/regiones.xlsx"));
        // new InsertRCandidature().insert(new RCandidatureExcel().read("src/main/test/candidatures.xlsx"));
       //  new InsertRCandidate().insert(new RCandidateExcel().read("src/main/test/candidatos.xlsx"));
