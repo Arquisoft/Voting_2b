@@ -32,6 +32,7 @@ import es.uniovi.asw.model.VoteOpenList;
 import es.uniovi.asw.model.VoteReferendum;
 import es.uniovi.asw.model.Voter;
 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Application.class, RepositoryConfiguration.class})
 public class DataBaseTest {
