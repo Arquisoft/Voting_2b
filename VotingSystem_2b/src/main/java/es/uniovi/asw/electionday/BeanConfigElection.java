@@ -36,13 +36,12 @@ public class BeanConfigElection implements Serializable {
     private String instructions;
     private String question;
     private static boolean excelUploaded = false;
-    private int numChoices;
+    private int numChoices = 1;
 
 
     @PostConstruct
     void init() {
 
-        System.out.println("BeanControllerElecion creado");
         //selectedValue="abierta";
 
     }
@@ -57,17 +56,17 @@ public class BeanConfigElection implements Serializable {
 
     public boolean listasAbiertas() {
 
-        return "abierta".equals(selectedValue);
+        return "Listas Abiertas".equals(selectedValue);
     }
 
     public boolean referendum() {
 
-        return "referendum".equals(selectedValue);
+        return "Referéndum".equals(selectedValue);
     }
 
     public boolean listasCerradas() {
 
-        return "cerrada".equals(selectedValue);
+        return "Listas Cerradas".equals(selectedValue);
     }
 
 
@@ -80,7 +79,7 @@ public class BeanConfigElection implements Serializable {
     }
 
     public List<String> getValues() {
-        return Arrays.asList("abierta", "cerrada", "referendum");
+        return Arrays.asList("Listas Abiertas", "Listas Cerradas", "Referéndum");
     }
 
     public void setValues(String[] values) {

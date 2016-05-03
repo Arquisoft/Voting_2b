@@ -32,7 +32,7 @@
                         <div class="col-md-12">
                             <div class="panel panel-primary">
                                 <div class="panel-heading"><h3
-                                        class="panel-title"> Configuracion de colegios electorales</h3></div>
+                                        class="panel-title"> Configuración de Colegios Electorales, Circunscripciones y Regiones</h3></div>
                                 <div class="panel-body">
                                     <b:messages showDetail="true" autoUpdate="true" globalOnly="true" closable="true"/>
                                     <b:section rendered="#{beanPolling.isExcelUploaded() eq false}">
@@ -40,7 +40,7 @@
                                         <form method="POST" enctype="multipart/form-data" action="/uploadPolling">
 
 
-                                            <h6>Sube el archivo</h6>
+                                            <h6>Archivo</h6>
 
 
                                             <div class="fileinput fileinput-new input-group"
@@ -58,7 +58,7 @@
                                             </div>
 
 
-                                            <input class="btn btn-primary" type="submit" value="Sube el excel"/>
+                                            <input class="btn btn-primary" type="submit" value="Procesar"/>
 
 
                                         </form>

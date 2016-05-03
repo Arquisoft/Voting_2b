@@ -45,12 +45,12 @@
                         <div class="jumbotron" id="Posibles"><h1>Configure el sistema electoral</h1>
                             <b:messages showDetail="true" autoUpdate="true" globalOnly="true" closable="true"/>
 
-                            <p>Seleccione el tipo de elecciones que desea.</p>
+                            <p>Seleccione el tipo de elecciones que desea</p>
                             <h:form class="form">
 
 
                                 <b:treeBox id="treebox"
-                                           label="Escoja el tipo de elecciones que desea"
+                                           label="Tipo de elecciones"
                                            hideLabel="false"
                                            value="#{beanConfigElection.selectedValue}"
                                            values="#{beanConfigElection.values}"
@@ -69,7 +69,7 @@
 
 
                                 <b:commandLink id="Configurar"
-                                               value="Seleccione el tipo"
+                                               value="Seleccionar tipo de elección"
                                                glyphicon="glyphicon glyphicon-thumbs-up glyphicon-lg"
                                                styleClass="btn btn-primary"
                                                ajaxDisableLinkOnRequest="true"
@@ -106,11 +106,11 @@
 
 
                                     <b:section rendered="#{beanConfigElection.isExcelUploaded() eq false}">
-                                        <h4>En primer lugar suba el archivo excel con las candidaturas</h4>
+                                        <h4>En primer lugar, suba el archivo excel con los candidatos</h4>
                                         <form method="POST" enctype="multipart/form-data" action="/upload">
 
 
-                                            <h6>Sube el archivo</h6>
+                                            <h6>Archivo</h6>
 
 
                                             <div class="fileinput fileinput-new input-group"
@@ -128,7 +128,7 @@
                                             </div>
 
 
-                                            <input class="btn btn-primary" type="submit" value="Sube el excel"/>
+                                            <input class="btn btn-primary" type="submit" value="Procesar"/>
 
 
                                         </form>
@@ -137,14 +137,14 @@
 
                                     <h:form id="formAbiertas"  rendered="#{beanConfigElection.isExcelUploaded() eq true}">
 
-                                        <h4>Configure ahora  las elecciones</h4>
+                                        <h4>Configure ahora los datos</h4>
                                         <ui:include src="/snippets/basicElections.xhtml"/>
                                         <b:number id="input"
-                                                  label="Numero de elecciones disponibles"
+                                                  label="Número de opciones a elegir"
                                                   hideLabel="false"
                                                   value="#{beanConfigElection.numChoices}"
-                                                  placeholder="Numero de posibilidades"
-                                                  min="0"
+                                                  placeholder="Número de opciones a elegir"
+                                                  min="1"
                                                   step="1"
                                                   styleClass="demo-big-label"
                                                   readonly="false"
@@ -153,11 +153,11 @@
                                                   autoFocus="false"
                                                   rendered="true"/>
                                         <b:tooltip>
-                                            Escoja el numero de opciones disponibles
+                                            Número de opciones a elegir
                                         </b:tooltip>
 
                                         <b:commandLink id="crearAbiertas"
-                                                       value="Crea Elecciones de lista Abierta"
+                                                       value="Crear Listas Abiertas"
                                                        glyphicon="glyphicon glyphicon-thumbs-up glyphicon-lg"
                                                        styleClass="btn btn-primary"
                                                        ajaxDisableLinkOnRequest="true"
@@ -198,7 +198,7 @@
                                 <div class="panel-body">
 
                                     <b:section rendered="#{beanConfigElection.isExcelUploaded() eq false}">
-                                        <h4>En primer lugar suba el archivo excel con las candidaturas</h4>
+                                        <h4>En primer lugar, suba el archivo excel con las candidaturas</h4>
                                         <form method="POST" enctype="multipart/form-data" action="/upload">
 
 
@@ -220,7 +220,7 @@
                                             </div>
 
 
-                                            <input class="btn btn-primary" type="submit" value="Sube el excel"/>
+                                            <input class="btn btn-primary" type="submit" value="Procesar"/>
 
 
                                         </form>
@@ -229,15 +229,15 @@
 
                                     <h:form id="formCerradas"  rendered="#{beanConfigElection.isExcelUploaded() eq true}">
 
-                                        <h4>Configure ahora  las elecciones</h4>
+                                        <h4>Configure ahora los datos</h4>
                                         <ui:include src="/snippets/basicElections.xhtml"/>
 
                                         <b:number id="input"
-                                                  label="Numero de elecciones disponibles"
+                                                  label="Número de opciones a elegir"
                                                   hideLabel="false"
                                                   value="#{beanConfigElection.numChoices}"
-                                                  placeholder="Numero de posibilidades"
-                                                  min="0"
+                                                  placeholder="Número de opciones a elegir"
+                                                  min="1"
                                                   step="1"
                                                   styleClass="demo-big-label"
                                                   readonly="false"
@@ -246,10 +246,10 @@
                                                   autoFocus="false"
                                                   rendered="true"/>
                                         <b:tooltip>
-                                            Escoja el numero de opciones disponibles
+                                            Número de opciones a elegir
                                         </b:tooltip>
                                         <b:commandLink id="creaCerradas"
-                                                       value="Crea Elecciones de lista Abierta"
+                                                       value="Crear Listas Abiertas"
                                                        glyphicon="glyphicon glyphicon-thumbs-up glyphicon-lg"
                                                        styleClass="btn btn-primary"
                                                        ajaxDisableLinkOnRequest="true"
@@ -281,16 +281,16 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-primary">
-                                <div class="panel-heading"><h3 class="panel-title">Referendum</h3></div>
+                                <div class="panel-heading"><h3 class="panel-title">Referéndum</h3></div>
                                 <div class="panel-body">
 
                                     <h:form id="formReferendum">
 
                                         <ui:include src="/snippets/basicElections.xhtml"/>
-                                        <b:text label="Pregunta del Referendum" id="referendumInput"
+                                        <b:text label="Pregunta del Referéndum" id="referendumInput"
                                                 value="#{beanConfigElection.question}" required="true"/>
                                         <b:commandLink id="crearReferendum"
-                                                       value="Crea Referendum"
+                                                       value="Crear Referéndum"
                                                        glyphicon="glyphicon glyphicon-thumbs-up glyphicon-lg"
                                                        styleClass="btn btn-primary"
                                                        ajaxDisableLinkOnRequest="true"
