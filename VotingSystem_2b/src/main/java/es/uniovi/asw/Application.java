@@ -60,8 +60,8 @@ public class Application extends SpringBootServletInitializer implements Servlet
 
         User junta = Repository.userR.findByEmailAndPassword("junta","junta");
         if(junta==null){
-        User user = new User("junta","junta","junta",1,"junta");
-        Repository.userR.save(user);
+            User user = new User("junta","junta","junta",1,"junta");
+            Repository.userR.save(user);
         }
 
         Voter voter = new Voter();
