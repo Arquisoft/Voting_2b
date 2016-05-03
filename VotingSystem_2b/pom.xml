@@ -16,18 +16,10 @@
 
     <dependencies>
 
-
-        <dependency>
-            <groupId>com.google.apis</groupId>
-            <artifactId>google-api-services-drive</artifactId>
-            <version>v2-rev213-1.21.0</version>
-        </dependency>
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-
 
         <!-- JSF -->
 

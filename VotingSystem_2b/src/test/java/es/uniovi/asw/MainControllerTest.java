@@ -204,7 +204,7 @@ public class MainControllerTest {
 
 
         test03();
-        iterator = EsperaCargaPaginaxpath(driver, "/html/body/div/ul/li[4]/div[2]/div[1]/a", 1);
+        iterator = EsperaCargaPaginaxpath(driver, "/html/body/div/ul/li[3]/div[2]/div[1]/a", 1);
         iterator.click();
         esperar(5);
         iterator = driver.findElement(By.id("input_formId:j_idt9"));
