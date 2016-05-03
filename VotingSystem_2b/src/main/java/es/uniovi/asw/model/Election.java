@@ -135,5 +135,12 @@ public abstract class Election {
 	public boolean isOpenList() {
 		return this instanceof OpenList;
 	}
-	
+
+	public int countVotes(){
+		int count=0;
+		for(Vote voto:votes){
+			count+=voto.getNumVotes();
+		}
+		return count;
+	}
 }

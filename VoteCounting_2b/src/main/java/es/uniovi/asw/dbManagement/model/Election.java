@@ -134,9 +134,9 @@ public abstract class Election {
 	
 	public boolean readyToRecount(){
 		for(Vote voto:votes)
-			if(!voto.isReadyToRecount())
-				return false;
-		return true;
+			if(voto.isReadyToRecount())
+				return true;
+		return false;
 	}
 	
 }

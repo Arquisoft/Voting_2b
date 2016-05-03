@@ -1,0 +1,1 @@
+INSERT INTO "PUBLIC"."USER" ( "ID", "EMAIL", "PASSWORD" ) VALUES ( 1, 'junta', 'junta');

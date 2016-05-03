@@ -59,4 +59,9 @@ public class RepositoryConfiguration {
 	public void setVoterR(VoterRepository voterR) {
 		Repository.voterR = voterR;
 	}
+
+	@Autowired
+	public void setUserR(UserRepository userR) {
+		Repository.userR = userR;
+	}
 }

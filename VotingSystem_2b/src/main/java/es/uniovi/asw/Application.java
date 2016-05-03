@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.ServletContext;
 
+import es.uniovi.asw.model.User;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -53,6 +54,10 @@ public class Application extends SpringBootServletInitializer implements Servlet
         new InsertElectoralListsR().insertRegions(new RRegionExcel().read("src/main/test/regiones.xlsx"));
        // new InsertRCandidature().insert(new RCandidatureExcel().read("src/main/test/candidatures.xlsx"));
       //  new InsertRCandidate().insert(new RCandidateExcel().read("src/main/test/candidatos.xlsx"));
+
+
+        User user = new User("junta","junta","junta",1,"junta");
+        Repository.userR.save(user);
 
         Voter voter = new Voter();
         voter.setName("Labra");

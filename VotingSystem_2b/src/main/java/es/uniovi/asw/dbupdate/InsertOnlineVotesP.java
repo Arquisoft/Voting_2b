@@ -142,6 +142,7 @@ public class InsertOnlineVotesP implements InsertOnlineVotes {
 
         }
 
+        voteReferendum.setNumVotes(1);
 
         if(hasAlreadyVoted(v,referendum)) return  null;
         VoteReferendum voteReferendum1= Repository.voteR.save(voteReferendum);

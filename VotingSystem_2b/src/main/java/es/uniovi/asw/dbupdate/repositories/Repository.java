@@ -11,6 +11,7 @@ public class Repository {
 	public static TurnoutRepository turnoutR;
 	public static VoteRepository voteR;
 	public static VoterRepository voterR;
+	public static UserRepository userR;
 
 
 

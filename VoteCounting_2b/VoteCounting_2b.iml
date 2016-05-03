@@ -150,5 +150,6 @@
     <orderEntry type="library" name="Maven: org.springframework.integration:spring-integration-ip:4.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.integration:spring-integration-stream:4.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.0" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.38" level="project" />
   </component>
 </module>
