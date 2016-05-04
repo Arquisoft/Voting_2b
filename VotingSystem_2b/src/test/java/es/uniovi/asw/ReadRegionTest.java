@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import es.uniovi.asw.electionday.parser.RRegionExcel;
+import es.uniovi.asw.electoralDay.parser.RRegionExcel;
 import es.uniovi.asw.model.Region;
 
 public class ReadRegionTest {

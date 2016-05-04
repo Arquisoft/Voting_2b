@@ -26,9 +26,9 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import es.uniovi.asw.dbupdate.InsertElectionInfoP;
-import es.uniovi.asw.dbupdate.repositories.Repository;
-import es.uniovi.asw.dbupdate.repositories.RepositoryConfiguration;
+import es.uniovi.asw.database.InsertElectionInfoP;
+import es.uniovi.asw.database.repositories.Repository;
+import es.uniovi.asw.database.repositories.RepositoryConfiguration;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Application.class, RepositoryConfiguration.class})

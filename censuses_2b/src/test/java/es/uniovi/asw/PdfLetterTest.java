@@ -12,8 +12,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 
-import es.uniovi.asw.dbupdate.repositories.Repository;
-import es.uniovi.asw.dbupdate.repositories.RepositoryConfiguration;
+import es.uniovi.asw.database.repositories.Repository;
+import es.uniovi.asw.database.repositories.RepositoryConfiguration;
 import es.uniovi.asw.model.PollingPlace;
 import es.uniovi.asw.model.Voter;
 import es.uniovi.asw.personalLetters.PersonalLetterGenerator;

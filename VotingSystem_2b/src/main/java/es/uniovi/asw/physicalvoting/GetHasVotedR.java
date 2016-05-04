@@ -1,7 +1,7 @@
 package es.uniovi.asw.physicalvoting;
 
-import es.uniovi.asw.dbupdate.GetHasVoted;
-import es.uniovi.asw.dbupdate.GetHasVotedP;
+import es.uniovi.asw.database.GetHasVoted;
+import es.uniovi.asw.database.GetHasVotedP;
 import es.uniovi.asw.model.Turnout;
 import es.uniovi.asw.model.Voter;
 

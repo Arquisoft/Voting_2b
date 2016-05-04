@@ -11,7 +11,7 @@ import javax.faces.context.FacesContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import es.uniovi.asw.dbupdate.repositories.Repository;
+import es.uniovi.asw.database.repositories.Repository;
 import es.uniovi.asw.model.Election;
 import es.uniovi.asw.model.PollingPlace;
 import es.uniovi.asw.model.Vote;

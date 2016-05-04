@@ -1,12 +1,9 @@
 package es.uniovi.asw.bussiness.implementation.classes;
 
-import es.uniovi.asw.dbupdate.repositories.Repository;
+import es.uniovi.asw.database.repositories.Repository;
 import es.uniovi.asw.model.Election;
 import es.uniovi.asw.model.Turnout;
 import es.uniovi.asw.model.Voter;
-
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 
 /**
  * Created by ignaciofernandezalvarez on 16/4/16.

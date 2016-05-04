@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import es.uniovi.asw.dbupdate.repositories.Repository;
+import es.uniovi.asw.database.repositories.Repository;
 import es.uniovi.asw.model.Constituency;
 import es.uniovi.asw.model.PollingPlace;
 import es.uniovi.asw.model.Region;
