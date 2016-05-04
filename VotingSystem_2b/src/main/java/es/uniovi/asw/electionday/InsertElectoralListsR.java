@@ -2,8 +2,8 @@ package es.uniovi.asw.electionday;
 
 import java.util.List;
 
-import es.uniovi.asw.dbupdate.InsertElectoralLists;
-import es.uniovi.asw.dbupdate.InsertElectoralListsP;
+import es.uniovi.asw.database.InsertElectoralLists;
+import es.uniovi.asw.database.InsertElectoralListsP;
 import es.uniovi.asw.model.Candidate;
 import es.uniovi.asw.model.Candidature;
 import es.uniovi.asw.model.Region;

@@ -1,4 +1,4 @@
-package es.uniovi.asw.dbupdate;
+package es.uniovi.asw.database;
 
 import es.uniovi.asw.dbupdate.repositories.Repository;
 import es.uniovi.asw.model.*;
