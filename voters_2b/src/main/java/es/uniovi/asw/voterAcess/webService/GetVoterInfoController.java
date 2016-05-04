@@ -2,7 +2,6 @@ package es.uniovi.asw.voterAcess.webService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.uniovi.asw.dbManagement.GetVoter;
-import es.uniovi.asw.dbManagement.impl.GetVoterDB;
 import es.uniovi.asw.dbManagement.model.Voter;
-import es.uniovi.asw.dbManagement.persistence.VoterRepository;
+import es.uniovi.asw.dbManagement.persistence.Repository;
 import es.uniovi.asw.voterAcess.GetVoterInfo;
 import es.uniovi.asw.voterAcess.Infrastructure.ErrorFactory;
 import es.uniovi.asw.voterAcess.webService.responses.VoterInfoResponse;
@@ -24,15 +21,6 @@ import es.uniovi.asw.voterAcess.webService.responses.errors.ErrorResponse;
 public class GetVoterInfoController implements GetVoterInfo
 {
 	private static final Logger log = LoggerFactory.getLogger(GetVoterInfoController.class);
-	
-	private final VoterRepository voterRepository;
-	
-	
-	@Autowired
-	GetVoterInfoController(VoterRepository voterRepository)
-	{
-		this.voterRepository = voterRepository;
-	}
 	
 	@RequestMapping(value="/user",
 			method= RequestMethod.POST,
@@ -49,14 +37,14 @@ public class GetVoterInfoController implements GetVoterInfo
 			throw ErrorFactory.getErrorResponse(ErrorFactory.Errors.REQUIRED_PASSWORD);
 		
 		
-		GetVoter gv = new GetVoterDB(this.voterRepository);
-		Voter user = gv.getVoter(voter.getEmail());
+	
+		Voter votr = Repository.voterR.findByEmail(voter.getEmail());
 		
-		if(user == null)
+		if(votr == null)
 			throw ErrorFactory.getErrorResponse(ErrorFactory.Errors.USER_NOT_FOUND);
 		
-		else if(user.getPassword().compareTo(voter.getPassword()) == 0)
-			return new VoterInfoResponse(user);
+		else if(votr.getPassword().compareTo(voter.getPassword()) == 0)
+			return new VoterInfoResponse(votr);
 		
 		else
 			throw ErrorFactory.getErrorResponse(ErrorFactory.Errors.INCORRECT_PASSWORD);

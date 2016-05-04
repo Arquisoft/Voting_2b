@@ -12,7 +12,7 @@ public class VoterInfoResponse
 	private String email;
 	private String name;
 	private String nif;
-	private int poolingState;
+	private long poolingState;
 	
 	
 	public VoterInfoResponse()
@@ -24,8 +24,8 @@ public class VoterInfoResponse
 		super();
 		setEmail(voter.getEmail());
 		setName(voter.getName());
-		setNif(voter.getNIF());
-		setPoolingState(voter.getPollingPlace());
+		setNif(voter.getNif());
+		setPoolingState(voter.getPollingPlace().getId());
 	}
 	
 	public String getEmail()
@@ -61,13 +61,13 @@ public class VoterInfoResponse
 		this.nif = nif;
 	}
 	
-	public int getPoolingState()
+	public long getPoolingState()
 	{
 		return poolingState;
 	}
 	
 	@XmlElement
-	public void setPoolingState(int poolingState)
+	public void setPoolingState(long poolingState)
 	 {
 		this.poolingState = poolingState;
 	}	

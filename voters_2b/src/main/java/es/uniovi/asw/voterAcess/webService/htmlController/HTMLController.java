@@ -1,6 +1,5 @@
 package es.uniovi.asw.voterAcess.webService.htmlController;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,10 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import es.uniovi.asw.dbManagement.GetVoter;
-import es.uniovi.asw.dbManagement.impl.GetVoterDB;
 import es.uniovi.asw.dbManagement.model.Voter;
-import es.uniovi.asw.dbManagement.persistence.VoterRepository;
+import es.uniovi.asw.dbManagement.persistence.Repository;
 import es.uniovi.asw.voterAcess.Infrastructure.ErrorFactory;
 import es.uniovi.asw.voterAcess.Infrastructure.ErrorFactory.Errors;
 import es.uniovi.asw.voterAcess.webService.responses.errors.ErrorResponse;
@@ -26,15 +23,6 @@ import es.uniovi.asw.voterAcess.webService.responses.errors.ErrorResponse;
 @Controller
 public class HTMLController
 {
-	private final VoterRepository voterRepository;
-	
-	
-	@Autowired
-	HTMLController(VoterRepository voterRepository)
-	{
-		this.voterRepository = voterRepository;
-	}
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String userHTMLget(Model model)
 	{
@@ -56,17 +44,17 @@ public class HTMLController
 		String contraseña = parametro[1].split("=")[1];
 
 		
-		GetVoter gv = new GetVoterDB(this.voterRepository);
-		Voter user = gv.getVoter(email);	
 		
-		if (user != null)
+		Voter voter = Repository.voterR.findByEmail(email);	
+		
+		if (voter != null)
 		{
-			if(user.getPassword().compareTo(contraseña) == 0)
+			if(voter.getPassword().compareTo(contraseña) == 0)
 			{
-				model.addAttribute("email", user.getEmail());
-				model.addAttribute("name", user.getName());
-				model.addAttribute("nif", user.getNIF());
-				model.addAttribute("polling", user.getPollingPlace());
+				model.addAttribute("email", voter.getEmail());
+				model.addAttribute("name", voter.getName());
+				model.addAttribute("nif", voter.getNif());
+				model.addAttribute("polling", voter.getPollingPlace().getId());
 			}
 			
 			else { throw ErrorFactory.getErrorResponse(Errors.INCORRECT_PASSWORD); }
