@@ -150,7 +150,7 @@ public class MainControllerTest {
         esperar(1);
         textoPresentePagina(driver, "Ha votado correctamente, muchas gracias por su participación.");
         t2 = System.currentTimeMillis();
-        assertEquals(true,((t2-t1)/1000)<2L);
+        assertEquals(true,((t2-t1)/1000)<4L);
 
 
     }
