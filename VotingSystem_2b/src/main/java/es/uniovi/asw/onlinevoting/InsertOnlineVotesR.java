@@ -2,8 +2,8 @@ package es.uniovi.asw.onlinevoting;
 
 import java.util.List;
 
-import es.uniovi.asw.database.InsertOnlineVotes;
-import es.uniovi.asw.database.InsertOnlineVotesP;
+import es.uniovi.asw.dbupdate.InsertOnlineVotes;
+import es.uniovi.asw.dbupdate.InsertOnlineVotesP;
 import es.uniovi.asw.model.Candidate;
 import es.uniovi.asw.model.ClosedList;
 import es.uniovi.asw.model.OpenList;

@@ -1,7 +1,7 @@
 package es.uniovi.asw.electionday;
 
-import es.uniovi.asw.database.InsertElectionInfoP;
-import es.uniovi.asw.database.InsertElectoralInfo;
+import es.uniovi.asw.dbupdate.InsertElectionInfoP;
+import es.uniovi.asw.dbupdate.InsertElectoralInfo;
 import es.uniovi.asw.model.ClosedList;
 import es.uniovi.asw.model.OpenList;
 import es.uniovi.asw.model.Referendum;

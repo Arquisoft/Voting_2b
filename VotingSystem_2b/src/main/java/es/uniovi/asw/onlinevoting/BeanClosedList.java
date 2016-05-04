@@ -1,7 +1,7 @@
 package es.uniovi.asw.onlinevoting;
 
 import de.larmic.butterfaces.event.TableSingleSelectionListener;
-import es.uniovi.asw.database.InsertOnlineVotesP;
+import es.uniovi.asw.dbupdate.InsertOnlineVotesP;
 import es.uniovi.asw.model.Candidature;
 import es.uniovi.asw.model.ClosedList;
 import es.uniovi.asw.model.Voter;
@@ -19,7 +19,6 @@ import java.util.Map;
 /**
  * Created by ignaciofernandezalvarez on 14/4/16.
  */
-@SuppressWarnings("rawtypes")
 @Component("beanClosed")
 @Scope("view")
 public class BeanClosedList implements Serializable, TableSingleSelectionListener {
