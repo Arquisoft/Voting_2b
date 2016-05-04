@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import es.uniovi.asw.dbManagement.model.Voter;
 import es.uniovi.asw.dbManagement.persistence.Repository;
 import es.uniovi.asw.voterAcess.ChangePassword;
-import es.uniovi.asw.voterAcess.Infrastructure.ErrorFactory;
+import es.uniovi.asw.voterAcess.infrastructure.ErrorFactory;
 import es.uniovi.asw.voterAcess.webService.responses.ChangePasswordResponse;
 import es.uniovi.asw.voterAcess.webService.responses.errors.ErrorResponse;
 

@@ -1,4 +1,4 @@
-package es.uniovi.asw.voterAcess.Infrastructure;
+package es.uniovi.asw.voterAcess.infrastructure;
 
 import es.uniovi.asw.voterAcess.webService.responses.errors.ErrorResponse;
 import es.uniovi.asw.voterAcess.webService.responses.errors.IncorrectPasswordErrorResponse;

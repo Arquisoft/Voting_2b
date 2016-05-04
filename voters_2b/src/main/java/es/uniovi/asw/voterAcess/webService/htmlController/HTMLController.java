@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import es.uniovi.asw.dbManagement.model.Voter;
 import es.uniovi.asw.dbManagement.persistence.Repository;
-import es.uniovi.asw.voterAcess.Infrastructure.ErrorFactory;
-import es.uniovi.asw.voterAcess.Infrastructure.ErrorFactory.Errors;
+import es.uniovi.asw.voterAcess.infrastructure.ErrorFactory;
+import es.uniovi.asw.voterAcess.infrastructure.ErrorFactory.Errors;
 import es.uniovi.asw.voterAcess.webService.responses.errors.ErrorResponse;
 
 /**
