@@ -19,7 +19,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import es.uniovi.asw.database.repositories.Repository;
+import es.uniovi.asw.dbupdate.repositories.Repository;
 import es.uniovi.asw.model.Referendum;
 
 //@ContextConfiguration(classes = Application.class, loader = SpringApplicationContextLoader.class)

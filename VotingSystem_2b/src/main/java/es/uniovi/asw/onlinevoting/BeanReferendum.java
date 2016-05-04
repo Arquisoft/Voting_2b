@@ -1,6 +1,6 @@
 package es.uniovi.asw.onlinevoting;
 
-import es.uniovi.asw.database.InsertOnlineVotesP;
+import es.uniovi.asw.dbupdate.InsertOnlineVotesP;
 import es.uniovi.asw.model.Referendum;
 import es.uniovi.asw.model.Voter;
 import org.springframework.context.annotation.Scope;

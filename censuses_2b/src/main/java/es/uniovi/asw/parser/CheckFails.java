@@ -1,6 +1,6 @@
 package es.uniovi.asw.parser;
 
-import es.uniovi.asw.database.WReportR;
+import es.uniovi.asw.dbupdate.WReportR;
 import es.uniovi.asw.reportwritter.WriteReport;
 
 public class CheckFails {

@@ -10,10 +10,10 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import es.uniovi.asw.database.repositories.Repository;
-import es.uniovi.asw.database.repositories.RepositoryConfiguration;
-import es.uniovi.asw.electoralDay.InsertElectoralListsR;
-import es.uniovi.asw.electoralDay.parser.RRegionExcel;
+import es.uniovi.asw.dbupdate.repositories.Repository;
+import es.uniovi.asw.dbupdate.repositories.RepositoryConfiguration;
+import es.uniovi.asw.electionday.InsertElectoralListsR;
+import es.uniovi.asw.electionday.parser.RRegionExcel;
 import es.uniovi.asw.model.Constituency;
 import es.uniovi.asw.model.Region;
 

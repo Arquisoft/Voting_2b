@@ -35,11 +35,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.sun.faces.config.ConfigureListener;
 
 import es.uniovi.asw.configuration.ViewScope;
-import es.uniovi.asw.database.repositories.Repository;
-import es.uniovi.asw.electoralDay.BeanConfigElection;
-import es.uniovi.asw.electoralDay.BeanPollingPlaces;
-import es.uniovi.asw.electoralDay.InsertElectoralListsR;
-import es.uniovi.asw.electoralDay.parser.RRegionExcel;
+import es.uniovi.asw.dbupdate.repositories.Repository;
+import es.uniovi.asw.electionday.BeanConfigElection;
+import es.uniovi.asw.electionday.BeanPollingPlaces;
+import es.uniovi.asw.electionday.InsertElectoralListsR;
+import es.uniovi.asw.electionday.parser.RRegionExcel;
 import es.uniovi.asw.model.Voter;
 
 @Controller

@@ -2,7 +2,7 @@ package es.uniovi.asw.parser;
 
 import java.util.List;
 
-import es.uniovi.asw.database.Insert;
+import es.uniovi.asw.dbupdate.Insert;
 import es.uniovi.asw.model.Voter;
 import es.uniovi.asw.personalLetters.PersonalLetterGenerator;
 
