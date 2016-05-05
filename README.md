@@ -15,7 +15,7 @@ Voting System
 
 ### IMPORTANTE: tener abierto xampp (o un sevior de mysql escuchando en el puerto 3306
 
-# Módulo censuses
+# Módulo censuses 
 
 Desde la carpeta específica de censuses (Voting_2b/censuses_2b) ejecutamos **mvn spring-boot:run** se accederá a un menú en el cual disponemos de diferentes opciones:
 
