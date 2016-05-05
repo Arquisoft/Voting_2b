@@ -11,6 +11,10 @@ Voting System
 
 # Instrucciones de funcionamento
 
+## Accede a nuestra wiki
+
+
+
 # Módulo censuses
 
 Desde la carpeta específica de censuses (Voting_2b/censuses_2b) ejecutamos **mvn spring-boot:run** se accederá a un menú en el cual disponemos de diferentes opciones:
@@ -80,7 +84,6 @@ Para acceder iniciar el recuento accedemos a la zona de login de la junta electo
 **junta** **junta** una vez nos encontremos en el portal de recuento podremos darle comienzo, y tras ello comprobar los resultados.
 
 Una vez realicemos el recuento podremos ya ver los resultados desde cualquier lado
-
 
 # Authors
 * Ignacio Fernández Álvarez
