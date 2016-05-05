@@ -59,11 +59,12 @@ Para acceder al portal del administrador al inciar sesión nos logueamos con **a
 
 En el portal podremos realizar las siguientes tareas:
 
-*Podemos crear tres tipos de elecciones
 
-** Listas Abiertas
-** Referéndum
-** Listas Cerradas
+* Podemos crear tres tipos de elecciones
+
+  * Listas Abiertas
+  * Referéndum
+  * Listas Cerradas
 
 * Cargar votos físicos
 * Control de voto físico y marcado de voto presencial
