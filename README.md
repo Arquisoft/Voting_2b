@@ -13,7 +13,7 @@ Voting System
 
 ## Accede a nuestra wiki
 
-
+### IMPORTANTE: tener abierto xampp (o un sevior de mysql escuchando en el puerto 3306
 
 # Módulo censuses
 
