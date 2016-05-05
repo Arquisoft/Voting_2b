@@ -85,6 +85,15 @@ Para acceder iniciar el recuento accedemos a la zona de login de la junta electo
 
 Una vez realicemos el recuento podremos ya ver los resultados desde cualquier lado
 
+# Aplicaciones desplegadas online (carecen de integración pero permiten prueba)
+
+### Vote Couting
+http://vote-counting-2b.herokuapp.com
+
+### VotingSystem
+https://boiling-sea-17649.herokuapp.com/
+
+
 # Authors
 * Ignacio Fernández Álvarez
 * Naucé López González
