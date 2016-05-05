@@ -11,7 +11,7 @@ Voting System
 
 # Instrucciones de funcionamento
 
-## Módulo censuses
+# Módulo censuses
 
 Desde la carpeta específica de censuses (Voting_2b/censuses_2b) ejecutamos **mvn spring-boot:run** se accederá a un menú en el cual disponemos de diferentes opciones:
 
@@ -26,7 +26,7 @@ Desde la carpeta específica de censuses (Voting_2b/censuses_2b) ejecutamos **mv
 Las cartas personales estarán disponibles en el directorio letters.
 
 
-## Módulo Voters
+# Módulo Voters
 
 Desde la carpeta específica de censuses (Voting_2b/voters_2b) ejecutamos **mvn spring-boot:run**
 
@@ -49,7 +49,7 @@ Al enviar una petición GET a la página `<URIServicioWeb>` se recibirá un arch
 
 Después de rellenar los campos de formulario y hacer clic en el botón enviar, el servicio web devolverá los datos solicitados, o si ha habido un error devolverá un html con la causa del mismo.
 
-## Módulo VotingSystem
+# Módulo VotingSystem
 
 Desde la carpeta específica de censuses (Voting_2b/VotingSystem_2b) ejecutamos **mvn spring-boot:run** accedemos mediente nuestro navegador favorito a la url **localhost:9090/** , en ella accederemos a la aplicación web que controlar el sistema de configuración de las elecciones y sistema de voto.
 
@@ -69,11 +69,13 @@ En el portal podremos realizar las siguientes tareas:
 * Control de voto físico y marcado de voto presencial
 * Configuración colegios electorales
 
-## Módulo VotingSystem
+# Módulo VoteCounting
 
-Desde la carpeta específica de censuses (Voting_2b/VotingSystem_2b) ejecutamos **mvn spring-boot:run** accedemos mediente nuestro navegador favorito a la url **localhost:8080/** , en ella accederemos a la aplicación web que controlar el sistema de comprobación y recuento de voto.
+Desde la carpeta específica de censuses (Voting_2b/VoteCounting_2b) ejecutamos **mvn spring-boot:run** accedemos mediente nuestro navegador favorito a la url **localhost:8080/** , en ella accederemos a la aplicación web que controlar el sistema de comprobación y recuento de voto.
 
-### Para acceder iniciar el recuento accedemos a la zona de login de la junta electoral , con el usuario y contraseña 
+### Acceso al portal de la junta electoral
+
+Para acceder iniciar el recuento accedemos a la zona de login de la junta electoral , con el usuario y contraseña 
 **junta** **junta** una vez nos encontremos en el portal de recuento podremos darle comienzo, y tras ello comprobar los resultados.
 
 Una vez realicemos el recuento podremos ya ver los resultados desde cualquier lado
