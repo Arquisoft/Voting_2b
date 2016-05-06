@@ -11,9 +11,9 @@ Voting System
 
 # Instrucciones de funcionamento
 
-## Accede a nuestra wiki
+## [Accede a nuestra wiki](https://github.com/Arquisoft/Voting_2b/wiki)
 
-### IMPORTANTE: tener abierto xampp (o un sevior de mysql escuchando en el puerto 3306
+### IMPORTANTE: tener abierto xampp (o un servidor de mysql escuchando en el puerto 3306)
 
 # Módulo censuses 
 
@@ -55,7 +55,7 @@ Después de rellenar los campos de formulario y hacer clic en el botón enviar, 
 
 # Módulo VotingSystem
 
-Desde la carpeta específica de censuses (Voting_2b/VotingSystem_2b) ejecutamos **mvn spring-boot:run** accedemos mediente nuestro navegador favorito a la url **localhost:9090/** , en ella accederemos a la aplicación web que controlar el sistema de configuración de las elecciones y sistema de voto.
+Desde la carpeta específica de censuses (Voting_2b/VotingSystem_2b) ejecutamos **mvn spring-boot:run** accedemos mediante nuestro navegador favorito a la url **localhost:9090/** , en ella accederemos a la aplicación web que controla el sistema de configuración de las elecciones y sistema de voto.
 
 ### Acceso al portal de administración
 
@@ -80,7 +80,7 @@ Desde la carpeta específica de censuses (Voting_2b/VoteCounting_2b) ejecutamos 
 
 ### Acceso al portal de la junta electoral
 
-Para acceder iniciar el recuento accedemos a la zona de login de la junta electoral , con el usuario y contraseña 
+Para acceder iniciar el recuento accedemos a la zona de login de la junta electoral, con el usuario y contraseña 
 **junta** **junta** una vez nos encontremos en el portal de recuento podremos darle comienzo, y tras ello comprobar los resultados.
 
 Una vez realicemos el recuento podremos ya ver los resultados desde cualquier lado
@@ -90,7 +90,7 @@ Una vez realicemos el recuento podremos ya ver los resultados desde cualquier la
 ### Vote Couting
 http://vote-counting-2b.herokuapp.com
 
-### VotingSystem
+### Voting System
 https://boiling-sea-17649.herokuapp.com/
 
 
